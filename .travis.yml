@@ -2,6 +2,13 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
 env:
-  - CI=true
+- CI=true
+deploy:
+  provider: heroku
+  api_key: 57b76cb1-8d3a-4f55-994d-2f7766cf46cd
+    secure: luWbsm+WftLcKt+vuh5365K470hB8XfPj9OV4qG+EY9ehv4j9D2B3/U+Lv85Epiz3htloLU3z4LyA2xfLUkorbLD8Nu9Pli/Tkok511NvYFhOq1ODF3Z/NGXX/Fys+KtmhMb3VUQtOaBmtn1ZWOLeRckaEAkI9PrGZRBFglWhy+iHLBQdk3dFy/eECQvnukm5ZkRB2L6bP5fAGuf+SmWjKrXO6/FEZuIcDWs72jLea/M6pYcKlTnd3+vHjDPU54gw1xIUq2vQtigpYPnV0Giw4csYPLqdn3MGhOyIuP6sEBdO+tpt2FiR/55BEf00d4/jRkFqfm6+w04LY8J/w5RPZMqr3iuf3Db1jGd7jxg6dej2J4qtR1baiBV7JUM+abeBnuf3tqN1h/eAnP2uDN0xqdrqiJ504qC7WSX2L1ws2Jyth1IJ7yVkXzU8ZcG5O/HIkyohu9qXF/mdus4hQu7uHtn4xdXDHdCA9SfXK8YIOwtM4uoe57g88X3OUftEy7oo+ykdalBV393USx4ovb1/DxdqovJ8i8w4lmBIAjl67f8t+HzYEan2V0dgGt5f9iImjY4J32IoiiLJVKRUDR5RXhEo3VpwTN+7rPoL3YEq9YR/VeHzm58iRdNe+mcyAfdIj511ptzDAIpdD0pwf1sDd1Mf+GAFYtEmfcaReqCW1Y=
+  app: mindful-eater-client
+  on:
+    repo: vmsimone/mindful-eater-client
