@@ -15,7 +15,8 @@ class Home extends React.Component {
           <UserInfo 
             userName={"Doctor"}
             myDiet={"vegan"}
-            myStatus={"active"}
+            myLifestyle={"active"}
+            myStatus={"lacking protein"}
             weRecommend={["spinach", "lentils"]}
           />
         </main>
