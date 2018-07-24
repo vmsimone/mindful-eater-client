@@ -9,5 +9,3 @@ export default function Diet(props) {
       </div>
     );
 }
-
-export default Diet;

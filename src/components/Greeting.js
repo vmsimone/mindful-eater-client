@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export default function Greeting(props) {
     const {userName} = props;
@@ -8,5 +8,3 @@ export default function Greeting(props) {
       </div>
     );
 }
-
-export default Greeting;
