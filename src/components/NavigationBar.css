@@ -1,0 +1,9 @@
+ul {
+    background: #cccccc;
+    padding: 10px;
+}
+
+li {
+    display: inline;
+    padding: 10px;
+}

@@ -1,0 +1,31 @@
+body {
+  text-align: center;
+}
+
+nav {
+  position: fixed;
+  top: -20px;
+  width: 100%;
+  z-index: 1;
+}
+
+main {
+  position: relative;
+  top: 50px;
+}
+
+section {
+  padding: 20px;
+}
+
+.user-desc {
+  background: #999999;
+}
+
+.user-status {
+  background: #cccccc;
+}
+
+.user-recommendations {
+  background: #999999;
+}
