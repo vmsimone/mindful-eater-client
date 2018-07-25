@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Greeting from './Greeting.js';
-import Diet from './Diet.js';
+import Lifestyle from './Lifestyle.js';
 import Status from './Status.js';
 
 export default function UserInfo(props) {
@@ -10,7 +10,7 @@ export default function UserInfo(props) {
     <div className="UserInfo">
       <Greeting userName={userName}/>
         <section className="user-desc">
-          <Diet myDiet={myDiet} myLifestyle={myLifestyle}/>
+          <Lifestyle myDiet={myDiet} myLifestyle={myLifestyle}/>
         </section>
         <section className="user-status">
           <Status myStatus={myStatus} weRecommend={weRecommend}/>

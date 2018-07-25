@@ -2,11 +2,11 @@ import React from 'react';
 
 import NavigationBar from './NavigationBar.js';
 
-class Diet extends React.Component {
+class MealDiary extends React.Component {
   render() {
     return (
-      <div className="Diet">
-        <header className="Diet-header">
+      <div className="MealDiary">
+        <header className="MealDiary-header">
         </header>
         <body>
           <nav>
@@ -14,7 +14,7 @@ class Diet extends React.Component {
           </nav>
           <main>
             <div>
-              <p>Diet page is working</p>
+              <p>MealDiary has loaded</p>
             </div>
           </main>
         </body>
@@ -23,4 +23,4 @@ class Diet extends React.Component {
   }
 }
 
-export default Diet;
+export default MealDiary;
