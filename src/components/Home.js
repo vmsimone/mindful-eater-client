@@ -7,7 +7,7 @@ import NavigationBar from './NavigationBar.js';
 class Home extends React.Component {
   render() {
     return (
-      <body>
+      <div>
         <nav>
           <NavigationBar />
         </nav>
@@ -20,7 +20,7 @@ class Home extends React.Component {
             weRecommend={["spinach", "lentils"]}
           />
         </main>
-      </body>
+      </div>
     );
   }
 }

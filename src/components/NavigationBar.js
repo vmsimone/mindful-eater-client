@@ -17,7 +17,7 @@ export default function NavigationBar(props) {
               <li><Link to="/diet">My diet</Link></li>
               <li><a href="/info">Log Out</a></li>
           </ul>
-          <Route exact path="/home" component={Home} />
+          <Route path="/home" component={Home} />
           <Route exact path="/diet" component={Diet} />
           <Route exact path="/meal-diary" component={MealDiary} />
         </div>
