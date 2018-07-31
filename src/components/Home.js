@@ -1,30 +1,28 @@
 import React from 'react';
 import './Home.css';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import UserInfo from './UserInfo.js';
 import NavigationBar from './NavigationBar.js';
+import UserInfo from './UserInfo.js';
+import MealDiary from './MealDiary.js';
+import DietPage from './DietPage.js';
 
 class Home extends React.Component {
   render() {
     return (
-      <div className="Home">
-        <header className="Home-header">
-        </header>
-        <body>
+      <Router>
+        <div>
           <nav>
             <NavigationBar />
           </nav>
           <main>
-            <UserInfo 
-              userName={"Doctor"}
-              myDiet={"vegan"}
-              myLifestyle={"active"}
-              myStatus={"lacking protein"}
-              weRecommend={["spinach", "lentils"]}
-            />
+          <Route exact path="/" component={UserInfo} />
+            <Route exact path="/home" component={UserInfo} />
+            <Route exact path="/meal-diary" component={MealDiary} />
+            <Route exact path="/diet" component={DietPage} />
           </main>
-        </body>
-      </div>
+        </div>
+      </Router>
     );
   }
 }

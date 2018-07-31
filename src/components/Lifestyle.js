@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Diet(props) {
+export default function Lifestyle(props) {
     const {myDiet, myLifestyle} = props;
     return (
       <div>

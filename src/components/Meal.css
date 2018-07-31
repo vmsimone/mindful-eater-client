@@ -1,0 +1,29 @@
+.food-item {
+    width: 80%;
+    background: #999999;
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+ul {
+    background: #cccccc;
+    padding: 10px;
+}
+  
+li {
+    display: inline;
+    padding: 10px;
+}
+  
+img {
+    height: 70px;
+    float: left;
+    border: black solid 2px;
+    border-radius: 100%;
+    margin: 10px;
+    background: white;
+    padding: 5px;
+}
