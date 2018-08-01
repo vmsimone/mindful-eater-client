@@ -1,6 +1,8 @@
 import React from 'react';
 
-import PremadeDiet from './PremadeDiet.js';
+import './diet-list.css';
+
+import PremadeDiet from './premade-diet.js';
 
 export default function DietList () {
     return (

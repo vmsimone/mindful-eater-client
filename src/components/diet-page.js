@@ -1,9 +1,8 @@
 import React from 'react';
 
-import NavigationBar from './NavigationBar.js';
-import DietList from './DietList.js';
+import DietList from './diet-list.js';
 
-import './DietPage.css';
+import './diet-page.css';
 
 class DietPage extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Meal from './Meal.js';
+import Meal from './meal.js';
 
 export default function MealList () {
     return (

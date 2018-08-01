@@ -1,11 +1,11 @@
 import React from 'react';
-import './Home.css';
+import './home.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import NavigationBar from './NavigationBar.js';
-import UserInfo from './UserInfo.js';
-import MealDiary from './MealDiary.js';
-import DietPage from './DietPage.js';
+import NavigationBar from './navigation-bar.js';
+import UserInfo from './user-info.js';
+import MealDiary from './meal-diary.js';
+import DietPage from './diet-page.js';
 
 class Home extends React.Component {
   render() {

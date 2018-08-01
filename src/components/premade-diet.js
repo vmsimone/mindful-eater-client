@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './PremadeDiet.css';
+import './premade-diet.css';
 
 export default function PremadeDiet() {
     const dietName = "Diet Name"

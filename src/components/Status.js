@@ -1,4 +1,5 @@
 import React from 'react';
+//import { connect } from 'react-redux';
 
 export default function Status(props) {
     const {myStatus, weRecommend} = props;
@@ -10,3 +11,10 @@ export default function Status(props) {
       </div>
     );
 }
+
+// const mapStateToProps = state => ({
+//   myStatus: state.myStatus,
+//   weRecommend: state.weRecommend
+// });
+
+// export default connect(mapStateToProps)(Status);

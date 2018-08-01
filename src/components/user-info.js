@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Greeting from './Greeting.js';
-import Lifestyle from './Lifestyle.js';
-import Status from './Status.js';
+import Greeting from './greeting.js';
+import Lifestyle from './lifestyle.js';
+import Status from './status.js';
 
 export default function UserInfo() {
   return (

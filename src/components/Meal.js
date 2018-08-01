@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Meal.css';
+import './meal.css';
 
 export default function Meal () {
     const mealName = "Meal Name";
