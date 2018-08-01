@@ -2,13 +2,12 @@ import React from 'react';
 
 import './premade-diet.css';
 
-export default function PremadeDiet() {
-    const dietName = "Diet Name"
-    const restriction = "some food";
+export default function PremadeDiet(props) {
+    const {dietName, restrictions} = props;
     return (
         <div className="diet">
           <h3>{dietName}</h3>
-          <p>I don't eat {restriction}</p>
+          <p>{restrictions}</p>
           <p>[food icons below]</p>
           <ul className="icon-list">
             <li><img className="mini-icon" /></li>

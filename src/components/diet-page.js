@@ -9,7 +9,6 @@ class DietPage extends React.Component {
     return (
       <div className="DietPage">
           <main>
-            <p>Diet page is working</p>
             <DietList />
           </main>
       </div>
