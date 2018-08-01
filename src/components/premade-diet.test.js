@@ -5,6 +5,6 @@ import PremadeDiet from './premade-diet.js';
 
 describe('<PremadeDiet />', () => {
     it('should render', () => {
-        shallow(<PremadeDiet />);
+        shallow(<PremadeDiet iconList={["vegetables", "fruits"]}/>);
     });
 });

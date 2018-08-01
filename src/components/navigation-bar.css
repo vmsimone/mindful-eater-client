@@ -1,9 +1,9 @@
-ul {
+nav ul {
     background: #cccccc;
     padding: 10px;
 }
 
-li {
+nav li {
     display: inline;
     padding: 10px;
 }

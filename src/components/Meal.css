@@ -7,18 +7,8 @@
     border-radius: 10px;
     padding: 10px;
 }
-
-ul {
-    background: #cccccc;
-    padding: 10px;
-}
   
-li {
-    display: inline;
-    padding: 10px;
-}
-  
-img {
+.food-item img {
     height: 70px;
     float: left;
     border: black solid 2px;

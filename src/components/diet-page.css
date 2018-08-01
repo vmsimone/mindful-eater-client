@@ -1,74 +1,58 @@
 div {
     text-align: center;
-  }
-  
-  nav {
-    position: fixed;
-    top: -20px;
-    width: 100%;
-    z-index: 1;
-  }
-  
-  nav ul {
-    background: #cccccc;
-    padding: 10px;
-  }
-  
-  li {
-    display: inline;
-    padding: 10px;
-  }
-  
-  main {
-    position: relative;
-    top: 50px;
-  }
-  
-  .diet {
-    width: 80%;
-    background: #999999;
-    display: block;
-    margin: 0 auto;
-    margin-top: 50px;
-    border-radius: 10px;
-    padding: 10px;
-  }
-  
-  h3 {
-    font-size: 24px;
-  }
-  
-  .diet ul {
-    width: 85%;
-  }
-  
-  .mini-icon {
-    height: 20px;
-    width: 20px;
-    border: black solid 2px;
-    border-radius: 100%;
-    background: white;
-  }
-  
-  .veg {
-    background: #cccccc
-  }
-  
-  .foods {
-    width: 100%;
-    padding: 5px;
-  }
-  
-  .foods img {
-    width: 25%;
-    border: black solid 2px;
-    border-radius: 100%;
-    margin: 1%;
-    background: #dddddd;
-    padding: 5px;
-  }
-  
-  #food1,
-  #food2 {
-    background: black;
-  }
+}
+
+nav {
+  position: fixed;
+  top: -20px;
+  width: 100%;
+  z-index: 1;
+}
+
+nav ul {
+  background: #cccccc;
+  padding: 10px;
+}
+
+nav li {
+  display: inline;
+  padding: 10px;
+}
+
+main {
+  position: relative;
+  top: 50px;
+}
+
+.diet {
+  width: 80%;
+  background: #999999;
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+.foods {
+  width: 100%;
+  padding: 5px;
+}
+
+.foods img {
+  width: 25%;
+  border: black solid 2px;
+  border-radius: 100%;
+  margin: 1%;
+  background: #dddddd;
+  padding: 5px;
+}
+
+#food1,
+#food2 {
+  background: black;
+}

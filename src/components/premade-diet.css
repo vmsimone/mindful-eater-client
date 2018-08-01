@@ -1,25 +1,22 @@
-.diet {
-    width: 80%;
-    background: #999999;
-    display: block;
-    margin: 0 auto;
-    margin-top: 50px;
-    border-radius: 10px;
-    padding: 10px;
-  }
-  
-  h3 {
-    font-size: 24px;
-  }
-  
-  .diet ul {
-    width: 85%;
-  }
-  
-  .mini-icon {
-    height: 20px;
-    width: 20px;
-    border: black solid 2px;
-    border-radius: 100%;
-    background: white;
-  }
+h3 {
+  font-size: 24px;
+}
+
+.icon-list ul {
+  text-align: center;
+  padding: 5px;
+}
+
+.icon-list li {
+  display: inline;
+  padding: 5px;
+}
+
+.mini-icon img {
+  height: 45px;
+  width: 45px;
+  border: black solid 2px;
+  border-radius: 100%;
+  background: white;
+  padding: 5px;
+}
