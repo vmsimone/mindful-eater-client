@@ -35,7 +35,7 @@ export const removeMeal = meal => ({
 });
 
 export const CHANGE_DIET = 'CHANGE_DIET';
-export const changeDiet = meal => ({
+export const changeDiet = newDiet => ({
     type: CHANGE_DIET,
     newDiet
 });

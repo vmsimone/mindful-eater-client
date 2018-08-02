@@ -9,9 +9,9 @@ import {LOG_IN,
     SHOW_RECOMMENDATIONS} from './actions';
 
 const initialState = {
-    username: 'demo',
-    diet: 'none',
-    lifestyle: 'average',
+    username: 'Demo User',
+    diet: 'vegetarian',
+    lifestyle: 'sedentary',
     status: 'healthy',
     mealsEaten: [],
     recommendations: []

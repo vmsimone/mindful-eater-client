@@ -1,10 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default function Greeting(props) {
-    const {userName} = props;
+export function Greeting(props) {
     return (
       <div>
-        <h3>Welcome, {userName}!</h3>
+        <h3>Welcome, {props.username}!</h3>
       </div>
     );
 }
+
+const mapStateToProps = state => ({
+  username: state.username
+});
+
+export default connect(mapStateToProps)(Greeting);

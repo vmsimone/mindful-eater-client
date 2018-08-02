@@ -7,7 +7,7 @@ import Status from './status.js';
 export default function UserInfo() {
   return (
     <div className="UserInfo">
-      <Greeting userName={"Doctor"}/>
+      <Greeting username={"Doctor"}/>
         <section className="desc">
           <Lifestyle myDiet={"vegan"} myLifestyle={"active"}/>
         </section>
