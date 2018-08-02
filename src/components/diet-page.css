@@ -1,22 +1,5 @@
 div {
-    text-align: center;
-}
-
-nav {
-  position: fixed;
-  top: -20px;
-  width: 100%;
-  z-index: 1;
-}
-
-nav ul {
-  background: #cccccc;
-  padding: 10px;
-}
-
-nav li {
-  display: inline;
-  padding: 10px;
+  text-align: center;
 }
 
 main {
@@ -26,7 +9,7 @@ main {
 
 .diet {
   width: 80%;
-  background: #999999;
+  background: #00972e;
   display: block;
   margin: 0 auto;
   margin-top: 50px;

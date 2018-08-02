@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import DietList from './diet-list.js';
+import DietPage from './diet-list.js';
 
-describe('<DietList />', () => {
+describe('<DietPage />', () => {
     it('should render', () => {
-        shallow(<DietList />);
+        shallow(<DietPage />);
     });
 });
