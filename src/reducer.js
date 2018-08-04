@@ -13,7 +13,50 @@ const initialState = {
     diet: 'vegetarian',
     lifestyle: 'sedentary',
     status: 'healthy',
-    mealsEaten: [],
+    mealsEaten: [
+        {
+            "name": "Banana",
+            "category": "fruits",
+            "nutrients": {
+                "carbs": 26.95,
+                "calcium": 6,
+                "fat": 0.39,
+                "iron": 0.31,
+                "protein": 1.29,
+                "sugars": 14.43
+            },
+            "okayFor": ["vegan", "vegetarian", "pescetarian", "paleo", "gluten-free"],
+            "user": "me"
+        },
+        {
+            "name": "Scrambled Eggs",
+            "category": "eggs",
+            "nutrients": {
+                "carbs": 3.22,
+                "calories": 298,
+                "fat": 21.96,
+                "iron": 2.62,
+                "protein": 9.99,
+                "sugars": 2.78
+            },
+            "okayFor": ["vegetarian", "pescetarian", "paleo", "gluten-free"],
+            "user": "me"
+        },
+        {
+            "name": "Quinoa",
+            "category": "vegetables",
+            "nutrients": {
+                "carbs": 39.41,
+                "calories": 222,
+                "fat": 3.55,
+                "iron": 2.76,
+                "protein": 8.14,
+                "sugars": 1.61
+            },
+            "okayFor": ["vegan", "vegetarian", "pescetarian", "gluten-free"],
+            "user": "me"
+        }
+    ],
     recommendations: []
 };
 
