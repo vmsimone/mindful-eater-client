@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Status from './status.js';
+import {Status} from './status.js';
 
 describe('<Status />', () => {
     it('should render', () => {

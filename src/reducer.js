@@ -12,7 +12,7 @@ const initialState = {
     username: 'Demo User',
     diet: 'vegetarian',
     lifestyle: 'sedentary',
-    status: 'healthy',
+    status: 'lacking in iron',
     mealsEaten: [
         {
             "name": "Banana",
@@ -57,7 +57,7 @@ const initialState = {
             "user": "me"
         }
     ],
-    recommendations: []
+    recommendations: ["lentils", "spinach"]
 };
 
 export default (state = initialState, action) => {
@@ -74,7 +74,7 @@ export default (state = initialState, action) => {
     }
 
     if (action.type === VIEW_MEALS) {
-        const {mealsEaten} = state;
+        //const {mealsEaten} = state;
 
         //filter mealsEaten by date in some way
         return Object.assign({}, state, {

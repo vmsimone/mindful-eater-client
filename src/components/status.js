@@ -1,20 +1,19 @@
 import React from 'react';
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
-export default function Status(props) {
-    const {myStatus, weRecommend} = props;
+export function Status(props) {
     return (
       <div>
         <h3>Evaluation:</h3> 
-        <p>Your diet today is {myStatus}</p>
-        <p>We recommend you try eating some {weRecommend[0]} and {weRecommend[1]}</p>
+        <p>Your diet today is {props.myStatus}</p>
+        <p>We recommend you try eating some {props.weRecommend[0]} and {props.weRecommend[1]}</p>
       </div>
     );
 }
 
-// const mapStateToProps = state => ({
-//   myStatus: state.myStatus,
-//   weRecommend: state.weRecommend
-// });
+const mapStateToProps = state => ({
+  myStatus: state.status,
+  weRecommend: state.recommendations
+});
 
-// export default connect(mapStateToProps)(Status);
+export default connect(mapStateToProps)(Status);

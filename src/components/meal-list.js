@@ -18,12 +18,14 @@ export class MealList extends React.Component {
         //     const nutrientList = this.convertObjectToArray(
         //         this.props.mealsEaten[meal].nutrients
         //     );
-
+        //     return (
         //         <Meal 
         //             mealName={this.props.mealsEaten[meal].name}
         //             nutrients={nutrientList}
-        //             category={"fruits"}
+        //             category={this.props.mealsEaten[meal].category}
         //         />
+        //     )
+        //         
         // })
 
         const firstMealNutrients = this.convertObjectToArray(
