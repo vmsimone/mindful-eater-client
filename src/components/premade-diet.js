@@ -24,7 +24,7 @@ export default function PremadeDiet(props) {
         },
         "bread": {
             alt: "bread",
-            src: "https://image.flaticon.com/icons/svg/184/184581.svg"
+            src: "https://cdn.iconscout.com/public/images/icon/free/png-512/bread-food-diet-bake-nutrition-bakery-323f0c9dc7d6f7b2-512x512.png"
         },
         "dairy": {
             alt: "dairy",

@@ -1,6 +1,7 @@
 .food-item {
     width: 80%;
     background: #00972e;
+    color: white;
     display: block;
     margin: 0 auto;
     margin-top: 50px;
@@ -16,4 +17,19 @@
     margin: 10px;
     background: white;
     padding: 5px;
+}
+
+.food-item h3 {
+    text-align: left;
+}
+
+.food-item ul {
+    padding: 0;
+    text-align: left;
+    margin-left: 110px;
+}
+
+.food-item li {
+    font-size: 20px;
+    display: inline;
 }
