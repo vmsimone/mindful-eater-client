@@ -1,42 +1,25 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import {store} from '../store';
 
-import {MealList} from './meal-list.js';
+import MealList from './meal-list.js';
 
 describe('<MealList />', () => {
     it('should render', () => {
-        shallow(<MealList store={store} mealsEaten={[
+        const seedMeals = [
             {
-                "nutrients": {
-                    "carbs": 26.95,
-                    "calcium": 6,
-                    "fat": 0.39,
-                    "iron": 0.31,
-                    "protein": 1.29,
-                    "sugars": 14.43
-                }
+                "name": "Banana",
+                "category": "fruits"
             },
             {
-                "nutrients": {
-                    "carbs": 26.95,
-                    "calcium": 6,
-                    "fat": 0.39,
-                    "iron": 0.31,
-                    "protein": 1.29,
-                    "sugars": 14.43
-                }
+                "name": "Scrambled Eggs",
+                "category": "eggs"
             },
             {
-                "nutrients": {
-                    "carbs": 26.95,
-                    "calcium": 6,
-                    "fat": 0.39,
-                    "iron": 0.31,
-                    "protein": 1.29,
-                    "sugars": 14.43
-                }
+                "name": "Quinoa",
+                "category": "vegetables"
             }
-        ]} />);
+        ];
+        const seedNutrients = ["vitams: lots", "vitams: a bunch", "vitams: many"];
+        shallow(<MealList mealsEaten={seedMeals} nutrients={seedNutrients}/>);
     });
 });

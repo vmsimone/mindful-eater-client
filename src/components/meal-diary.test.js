@@ -1,10 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import store from '../store';
 
-import MealList from './meal-list.js';
+import MealDiary from './meal-diary.js';
 
-describe('<MealList />', () => {
+describe('<MealDiary />', () => {
     it('should render', () => {
-        shallow(<MealList />);
+        shallow(<MealDiary store={store} />);
     });
 });

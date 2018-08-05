@@ -91,7 +91,7 @@ export default (state = initialState, action) => {
     }
 
     if (action.type === CHANGE_MEAL) {
-        const {mealsEaten} = state;
+        //const {mealsEaten} = state;
 
         return Object.assign({}, state, {
 
@@ -99,7 +99,7 @@ export default (state = initialState, action) => {
     }
 
     if (action.type === REMOVE_MEAL) {
-        const {mealsEaten} = state;
+        //const {mealsEaten} = state;
 
         return Object.assign({}, state, {
 
