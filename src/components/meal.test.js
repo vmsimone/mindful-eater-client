@@ -5,6 +5,10 @@ import Meal from './meal.js';
 
 describe('<Meal />', () => {
     it('should render', () => {
-        shallow(<Meal />);
+        shallow(<Meal 
+            mealName={"Meal"}
+            nutrients={["vitamins: plenty"]}
+            category={"fruits"}
+            />);
     });
 });
