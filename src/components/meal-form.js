@@ -5,7 +5,20 @@ import './meal-form.css'
 
 export class MealForm extends React.Component {
     onSubmit(values) {
-        console.log(values);
+        const newMeal = {
+            "name": values["meal-name"],
+            "category": values.category,
+            "nutrients": {
+                "carbs": values.carbs,
+                "calories": values.calories,
+                "fat": values.fat,
+                "iron": values.iron,
+                "protein": values.protein,
+                "sugars": values.sugars
+            }
+        }
+        console.log(newMeal);
+        return newMeal;
     }
     render() {
         return (

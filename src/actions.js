@@ -17,9 +17,12 @@ export const viewMeals = selectedDate => ({
 });
 
 export const ADD_MEAL = 'ADD_MEAL';
-export const addMeal = meal => ({
+export const addMeal = (meal, category, nutrients, index) => ({
     type: ADD_MEAL,
-    meal
+    meal,
+    category,
+    nutrients,
+    index
 });
 
 export const CHANGE_MEAL = 'CHANGE_MEAL';

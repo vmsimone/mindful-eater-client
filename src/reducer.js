@@ -1,12 +1,4 @@
-import {LOG_IN, 
-    LOG_OUT, 
-    VIEW_MEALS, 
-    ADD_MEAL, 
-    CHANGE_MEAL, 
-    REMOVE_MEAL, 
-    CHANGE_DIET, 
-    CHANGE_STATUS, 
-    SHOW_RECOMMENDATIONS} from './actions';
+import * as actions from './actions';
 
 const initialState = {
     username: 'Demo User',
@@ -61,19 +53,17 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    if (action.type === LOG_IN) {
+    if (action.type === actions.LOG_IN) {
         return Object.assign({}, state, {
             username: action.username
         });
     }
-
-    if (action.type === LOG_OUT) {
+    else if (action.type === actions.LOG_OUT) {
         return Object.assign({}, state, {
 
         });
     }
-
-    if (action.type === VIEW_MEALS) {
+    else if (action.type === actions.VIEW_MEALS) {
         //const {mealsEaten} = state;
 
         //filter mealsEaten by date in some way
@@ -81,48 +71,50 @@ export default (state = initialState, action) => {
             
         });
     }
-
-    if (action.type === ADD_MEAL) {
-        const {mealsEaten} = state;
-
-        return Object.assign({}, state, {
-            mealsEaten: [mealsEaten, action.meal]
+    else if (action.type === actions.ADD_MEAL) {
+        let mealsEaten = state.mindful.mealsEaten.map((meal, index) => {
+            if (index !== action.index) {
+                return meal;
+            }
+            return Object.assign({}, state, {
+                mealsEaten: [...state.mindful.mealsEaten, {
+                    "name": action.name,
+                    "category": action.category,
+                    "nutrients": action.nutrients,
+                    "okayFor": [],
+                    "user": "me"
+                }]
+            });
         });
     }
-
-    if (action.type === CHANGE_MEAL) {
+    else if (action.type === actions.CHANGE_MEAL) {
         //const {mealsEaten} = state;
 
         return Object.assign({}, state, {
 
         });
     }
-
-    if (action.type === REMOVE_MEAL) {
+    else if (action.type === actions.REMOVE_MEAL) {
         //const {mealsEaten} = state;
 
         return Object.assign({}, state, {
 
         });
     }
-
-    if (action.type === CHANGE_DIET) {
+    else if (action.type === actions.CHANGE_DIET) {
         return Object.assign({}, state, {
             diet: action.newDiet
         });
     }
-
-    if (action.type === CHANGE_STATUS) {
+    else if (action.type === actions.CHANGE_STATUS) {
         return Object.assign({}, state, {
             status: action.newStatus
         });
     }
-
-    if (action.type === SHOW_RECOMMENDATIONS) {
+    else if (action.type === actions.SHOW_RECOMMENDATIONS) {
         return Object.assign({}, state, {
             recommendations: action.recommendations
         });
     }
-
     return state;
 };
