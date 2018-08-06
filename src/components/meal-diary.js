@@ -2,10 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import MealList from './meal-list.js';
+import MealForm from './meal-form.js';
 
 import './meal-diary.css';
 
-class MealDiary extends React.Component {
+export class MealDiary extends React.Component {
   convertObjectToArray(obj) {
     const arr = [];
     Object.keys(obj).forEach(key => {
@@ -45,8 +46,8 @@ class MealDiary extends React.Component {
       <div className="MealDiary">
           <main>
             <h2>Today I've eaten...</h2>
+            <MealForm />
             <p>(button under construction)</p>
-            <button>Add meal</button>
             <MealList mealsEaten={this.props.mealsEaten} nutrients={[
               firstMealNutrients,
               secondMealNutrients,
@@ -59,7 +60,7 @@ class MealDiary extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  mealsEaten: state.mealsEaten
+  mealsEaten: state.mindful.mealsEaten
 });
 
 export default connect(mapStateToProps)(MealDiary);

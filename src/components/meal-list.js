@@ -22,5 +22,5 @@ export default function MealList(props) {
                 category={mealsEaten[2].category}
             />
         </div>
-    )    
+    )
 }

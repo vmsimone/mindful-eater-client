@@ -1,8 +1,9 @@
 nav {
     position: fixed;
     top: -20px;
-    width: 100%;
+    width: 105%;
     z-index: 1;
+    left: -5px;
   }
 
 nav ul {
@@ -11,13 +12,24 @@ nav ul {
   }
 
 nav li {
-    display: inline;
     font-family: sans-serif;
-    font-size: 24px;
+    font-size: 20px;
+    margin-top: 5px;
 }
 
 nav li a {
     text-decoration: none;
-    padding: 50px;
+    text-align: center;
     color: black;
+}
+
+@media only screen and (min-width: 640px) {
+    nav li {
+        display: inline;
+    }
+    
+    nav li a {
+        padding: 50px;
+        color: black;
+    }
 }

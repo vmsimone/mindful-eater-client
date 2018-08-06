@@ -12,8 +12,8 @@ export function Status(props) {
 }
 
 const mapStateToProps = state => ({
-  myStatus: state.status,
-  weRecommend: state.recommendations
+  myStatus: state.mindful.status,
+  weRecommend: state.mindful.recommendations
 });
 
 export default connect(mapStateToProps)(Status);

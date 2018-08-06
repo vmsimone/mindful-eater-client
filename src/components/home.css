@@ -2,16 +2,10 @@ div {
   text-align: center;
 }
 
-nav {
-  position: fixed;
-  top: -20px;
-  width: 100%;
-  z-index: 1;
-}
-
 main {
   position: relative;
-  top: 50px;
+  margin-top: 60px;
+  margin-bottom: 20px;
 }
 
 section {
@@ -28,4 +22,10 @@ section {
 
 .user-recommendations {
   background: #999999;
+}
+
+@media only screen and (min-width: 640px) {
+  main {
+    margin-top: 20px;
+  }
 }

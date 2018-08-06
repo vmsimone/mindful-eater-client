@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import Greeting from './greeting.js';
 import Lifestyle from './lifestyle.js';
@@ -20,11 +20,11 @@ export function UserInfo(props) {
 }
 
 const mapStateToProps = state => ({
-  username: state.username,
-  myDiet: state.diet,
-  myLifestyle: state.lifestyle,
-  myStatus: state.status,
-  weRecommend: state.recommendations
+  username: state.mindful.username,
+  myDiet: state.mindful.diet,
+  myLifestyle: state.mindful.lifestyle,
+  myStatus: state.mindful.status,
+  weRecommend: state.mindful.recommendations
 });
 
 export default connect(mapStateToProps)(UserInfo);

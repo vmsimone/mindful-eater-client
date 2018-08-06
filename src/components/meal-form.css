@@ -1,0 +1,11 @@
+label {
+    display: block;
+    margin: 10px;
+    font-size: 18px;
+}
+
+form button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+}

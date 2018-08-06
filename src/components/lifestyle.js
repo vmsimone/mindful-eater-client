@@ -11,8 +11,8 @@ export function Lifestyle(props) {
 }
 
 const mapStateToProps = state => ({
-  myDiet: state.diet,
-  myLifestyle: state.lifestyle
+  myDiet: state.mindful.diet,
+  myLifestyle: state.mindful.lifestyle
 });
 
 export default connect(mapStateToProps)(Lifestyle);
