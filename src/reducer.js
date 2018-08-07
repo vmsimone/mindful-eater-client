@@ -72,19 +72,14 @@ export default (state = initialState, action) => {
         });
     }
     else if (action.type === actions.ADD_MEAL) {
-        let mealsEaten = state.mindful.mealsEaten.map((meal, index) => {
-            if (index !== action.index) {
-                return meal;
-            }
-            return Object.assign({}, state, {
-                mealsEaten: [...state.mindful.mealsEaten, {
-                    "name": action.name,
-                    "category": action.category,
-                    "nutrients": action.nutrients,
-                    "okayFor": [],
-                    "user": "me"
-                }]
-            });
+        return Object.assign({}, state, {
+            mealsEaten: [...state.mealsEaten, {
+                "name": action.meal,
+                "category": action.category,
+                "nutrients": action.nutrients,
+                "okayFor": [],
+                "user": "me"
+            }]
         });
     }
     else if (action.type === actions.CHANGE_MEAL) {

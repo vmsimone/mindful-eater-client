@@ -1,10 +1,19 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
+import {connect} from 'react-redux';
+
+import {addMeal} from '../actions';
 
 import './meal-form.css'
 
 export class MealForm extends React.Component {
+    addMeal(name, category, nutrients) {
+        console.log('add meal called');
+        this.props.dispatch(addMeal(name, category, nutrients));
+    }
+
     onSubmit(values) {
+        console.log('submitted');
         const newMeal = {
             "name": values["meal-name"],
             "category": values.category,
@@ -18,7 +27,7 @@ export class MealForm extends React.Component {
             }
         }
         console.log(newMeal);
-        return newMeal;
+        this.addMeal(newMeal.name, newMeal.category, newMeal.nutrients);
     }
     render() {
         return (
@@ -58,6 +67,8 @@ export class MealForm extends React.Component {
         );
     }
 }
+
+MealForm = connect()(MealForm);
 
 export default reduxForm({
     form: 'add-meal'

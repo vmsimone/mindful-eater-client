@@ -4,15 +4,9 @@ import {connect} from 'react-redux';
 import MealForm from './meal-form.js';
 import Meal from './meal.js';
 
-import {addMeal} from '../actions';
-
 import './meal-diary.css';
 
 export class MealDiary extends React.Component {
-  addMeal(name, category, nutrients) {
-    this.props.dispatch(addMeal(name, category, nutrients, this.props.index));
-  }
-
   convertObjectToArray(obj) {
     const arr = [];
     Object.keys(obj).forEach(key => {
@@ -20,7 +14,7 @@ export class MealDiary extends React.Component {
     });
     return arr;
   }
-
+  
   render() {
     const meals = this.props.mealsEaten.map((meal, index) => {
       const nutrientList = this.convertObjectToArray(
@@ -42,7 +36,7 @@ export class MealDiary extends React.Component {
       <div className="MealDiary">
           <main>
             <h2>Today I've eaten...</h2>
-            <MealForm onSubmit={console.log('submitted')}/>
+            <MealForm />
             <p>(button under construction)</p>
             <ul className="meal-list">
               {meals}
