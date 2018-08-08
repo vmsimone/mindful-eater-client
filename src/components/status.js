@@ -1,14 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export function Status(props) {
+import {changeStatus, showRecommendations} from '../actions';
+
+export class Status extends React.Component {
+  updateEvaluation() {
+    this.props.dispatch(changeStatus());
+    this.props.dispatch(showRecommendations());
+  }
+
+  render() {
     return (
       <div>
         <h3>Evaluation:</h3> 
-        <p>Your diet today is {props.myStatus}</p>
-        <p>We recommend you try eating some {props.weRecommend[0]} and {props.weRecommend[1]}</p>
+        <p>{this.props.myStatus}</p>
+        <p>{this.props.weRecommend}</p>
+        <button onClick={() => {this.updateEvaluation()} }>Refresh</button>
       </div>
     );
+  }
 }
 
 const mapStateToProps = state => ({

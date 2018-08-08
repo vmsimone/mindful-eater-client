@@ -30,7 +30,6 @@ export class MealDiary extends React.Component {
         </li>
       )
     });
-    console.log(meals);
 
     return (
       <div className="MealDiary">

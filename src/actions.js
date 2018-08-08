@@ -44,13 +44,11 @@ export const changeDiet = newDiet => ({
 });
 
 export const CHANGE_STATUS = 'CHANGE_STATUS';
-export const changeStatus = newStatus => ({
-    type: CHANGE_STATUS,
-    newStatus
+export const changeStatus = () => ({
+    type: CHANGE_STATUS
 });
 
 export const SHOW_RECOMMENDATIONS = 'SHOW_RECOMMENDATIONS';
-export const showRecommendations = recommendations => ({
-    type: SHOW_RECOMMENDATIONS,
-    recommendations
+export const showRecommendations = () => ({
+    type: SHOW_RECOMMENDATIONS
 });
