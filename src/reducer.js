@@ -203,7 +203,7 @@ export default (state = initialState, action) => {
 
         Object.keys(totalNutrients).forEach(nutrient => {
             console.log(totalNutrients[nutrient]);
-            const ratio = (dailyRecommendedNutrients[nutrient] / totalNutrients[nutrient]);
+            const ratio = (totalNutrients[nutrient] / dailyRecommendedNutrients[nutrient]);
             console.log(ratio);
             if (ratio < 0.7 && ratio < lowestRatio) { 
                 lacking = nutrient;

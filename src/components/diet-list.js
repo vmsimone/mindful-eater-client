@@ -3,31 +3,19 @@ import { connect } from 'react-redux';
 
 import PremadeDiet from './premade-diet.js';
 
-export class DietList extends React.Component {
-    render() {
-        // let dietProps = React.createClass({
-        //     getInitialState: function() {
-        //         return {focus: false}
-        //     },
-        //     onFocus: function() {
-        //         this.setState({focus: true})
-        //     },
-        //     onBlur: function() {
-        //         this.setState({focus: false})
-        //     },
-        //     getClass: function() {
-        //         if(this.state.focus === true) {
-        //             return "selected";
-        //         } else {
-        //             return "";
-        //         }
-        //     }
-        // });
+import {changeDiet} from '../actions';
 
+export class DietList extends React.Component {
+    changeDiet(dietName) {
+        this.props.dispatch(changeDiet(dietName));
+    }
+
+    render() {
         return (
             <div className="Diet-List">
                 <PremadeDiet
-                    dietName={"No Diet"} 
+                    dietName={"No Diet"}
+                    onClick={() => {this.changeDiet("none")}} 
                     restrictions={"I'll eat anything"}
                     iconList={["fruits", "vegetables", "meat", "fish", "bread", "dairy"]}
                 />
