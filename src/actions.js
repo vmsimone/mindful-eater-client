@@ -17,9 +17,12 @@ export const viewMeals = selectedDate => ({
 });
 
 export const ADD_MEAL = 'ADD_MEAL';
-export const addMeal = meal => ({
+export const addMeal = (meal, category, nutrients, index) => ({
     type: ADD_MEAL,
-    meal
+    meal,
+    category,
+    nutrients,
+    index
 });
 
 export const CHANGE_MEAL = 'CHANGE_MEAL';
@@ -41,13 +44,11 @@ export const changeDiet = newDiet => ({
 });
 
 export const CHANGE_STATUS = 'CHANGE_STATUS';
-export const changeStatus = newStatus => ({
-    type: CHANGE_STATUS,
-    newStatus
+export const changeStatus = () => ({
+    type: CHANGE_STATUS
 });
 
 export const SHOW_RECOMMENDATIONS = 'SHOW_RECOMMENDATIONS';
-export const showRecommendations = recommendations => ({
-    type: SHOW_RECOMMENDATIONS,
-    recommendations
+export const showRecommendations = () => ({
+    type: SHOW_RECOMMENDATIONS
 });

@@ -1,11 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import MealList from './meal-list.js';
+import MealForm from './meal-form.js';
+import Meal from './meal.js';
 
 import './meal-diary.css';
 
-class MealDiary extends React.Component {
+export class MealDiary extends React.Component {
   convertObjectToArray(obj) {
     const arr = [];
     Object.keys(obj).forEach(key => {
@@ -13,45 +14,32 @@ class MealDiary extends React.Component {
     });
     return arr;
   }
-
+  
   render() {
-    // const Meals = this.props.mealsEaten.forEach(meal => {
-    //     const nutrientList = this.convertObjectToArray(
-    //         this.props.mealsEaten[meal].nutrients
-    //     );
-    //     return (
-    //         <Meal 
-    //             mealName={this.props.mealsEaten[meal].name}
-    //             nutrients={nutrientList}
-    //             category={this.props.mealsEaten[meal].category}
-    //         />
-    //     )
-    //         
-    // })
-
-    const firstMealNutrients = this.convertObjectToArray(
-        this.props.mealsEaten[0].nutrients
-    );
-
-    const secondMealNutrients = this.convertObjectToArray(
-        this.props.mealsEaten[1].nutrients
-    );
-
-    const thirdMealNutrients = this.convertObjectToArray(
-        this.props.mealsEaten[2].nutrients
-    );
+    const meals = this.props.mealsEaten.map((meal, index) => {
+      const nutrientList = this.convertObjectToArray(
+        meal.nutrients
+      );
+      return (
+        <li key={index}>
+          <Meal 
+            mealName={meal.name}
+            nutrients={nutrientList}
+            category={meal.category}
+          />
+        </li>
+      )
+    });
 
     return (
       <div className="MealDiary">
           <main>
             <h2>Today I've eaten...</h2>
+            <MealForm />
             <p>(button under construction)</p>
-            <button>Add meal</button>
-            <MealList mealsEaten={this.props.mealsEaten} nutrients={[
-              firstMealNutrients,
-              secondMealNutrients,
-              thirdMealNutrients
-            ]}/>
+            <ul className="meal-list">
+              {meals}
+            </ul>
           </main>
       </div>
     );
@@ -59,7 +47,7 @@ class MealDiary extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  mealsEaten: state.mealsEaten
+  mealsEaten: state.mindful.mealsEaten
 });
 
 export default connect(mapStateToProps)(MealDiary);

@@ -10,7 +10,7 @@ export function Greeting(props) {
 }
 
 const mapStateToProps = state => ({
-  username: state.username
+  username: state.mindful.username
 });
 
 export default connect(mapStateToProps)(Greeting);
