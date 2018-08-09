@@ -36,7 +36,6 @@ export class MealDiary extends React.Component {
           <main>
             <h2>Today I've eaten...</h2>
             <MealForm />
-            <p>(button under construction)</p>
             <ul className="meal-list">
               {meals}
             </ul>
