@@ -2,52 +2,10 @@ import * as actions from './actions';
 
 const initialState = {
     username: 'Demo User',
-    diet: 'vegetarian',
+    diet: 'none',
     lifestyle: 'sedentary',
     status: 'Click Refresh',
     mealsEaten: [
-        {
-            "name": "Banana",
-            "category": "fruits",
-            "nutrients": {
-                "calories": 118,
-                "carbs": 26.95,
-                "fat": 0.39,
-                "iron": 0.31,
-                "protein": 1.29,
-                "sugars": 14.43
-            },
-            "okayFor": ["vegan", "vegetarian", "pescetarian", "paleo", "gluten-free"],
-            "user": "me"
-        },
-        {
-            "name": "Scrambled Eggs",
-            "category": "eggs",
-            "nutrients": {
-                "calories": 298,
-                "carbs": 3.22,
-                "fat": 21.96,
-                "iron": 2.62,
-                "protein": 9.99,
-                "sugars": 2.78
-            },
-            "okayFor": ["vegetarian", "pescetarian", "paleo", "gluten-free"],
-            "user": "me"
-        },
-        {
-            "name": "Quinoa",
-            "category": "vegetables",
-            "nutrients": {
-                "calories": 222,
-                "carbs": 39.41,
-                "fat": 3.55,
-                "iron": 2.76,
-                "protein": 8.14,
-                "sugars": 1.61
-            },
-            "okayFor": ["vegan", "vegetarian", "pescetarian", "gluten-free"],
-            "user": "me"
-        }
     ],
     recommendations: ""
 };
@@ -79,7 +37,7 @@ const possibleRecommendations = {
         protein: ["shrimp",  "tuna"],
         fat: ["fish",  "eggs"]
     },
-        glutenFree: {
+    glutenFree: {
         carbs: ["quinoa",  "oats"],
         iron: ["turkey",  "beef"],
         protein: ["chicken",  "brussel sprouts"],
@@ -171,6 +129,7 @@ export default (state = initialState, action) => {
         });
     }
     else if (action.type === actions.CHANGE_DIET) {
+        console.log(action.newDiet);
         return Object.assign({}, state, {
             diet: action.newDiet
         });
@@ -225,6 +184,10 @@ export default (state = initialState, action) => {
                 We recommend eating some ${possibleRecommendations[state.diet][lacking][0]} 
                 and ${possibleRecommendations[state.diet][lacking][1]}.
             `; 
+        }
+
+        if (mealsEaten.length === 0) {
+            weRecommend = 'Are you fasting? Have something to eat!'
         }
 
         return Object.assign({}, state, {
