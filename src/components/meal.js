@@ -33,6 +33,10 @@ export default function Meal (props) {
         "eggs": {
             alt: "eggs",
             src: "https://png.icons8.com/metro/1600/eggs.png"
+        },
+        "sweets": {
+            alt: "sweets",
+            src: "https://image.flaticon.com/icons/svg/164/164659.svg"
         }
     }
 

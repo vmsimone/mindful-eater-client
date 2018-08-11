@@ -3,7 +3,7 @@ import * as actions from './actions';
 const initialState = {
     username: 'Demo User',
     diet: 'none',
-    lifestyle: 'sedentary',
+    lifestyle: 'sedentary', //lifestyle not currently used
     status: 'Click Refresh',
     mealsEaten: [
     ],
@@ -161,16 +161,18 @@ export default (state = initialState, action) => {
         let weRecommend;
 
         Object.keys(totalNutrients).forEach(nutrient => {
-            console.log(totalNutrients[nutrient]);
-            const ratio = (totalNutrients[nutrient] / dailyRecommendedNutrients[nutrient]);
-            console.log(ratio);
-            if (ratio < 0.7 && ratio < lowestRatio) { 
-                lacking = nutrient;
-                lowestRatio = ratio;
-            }
-            else if(ratio > 1.5 && ratio > highestRatio) { 
-                overeating = nutrient;
-                highestRatio = ratio;
+            if (nutrient !== "sugars") {
+                console.log(totalNutrients[nutrient]);
+                const ratio = (totalNutrients[nutrient] / dailyRecommendedNutrients[nutrient]);
+                console.log(ratio);
+                if (ratio < 0.7 && ratio < lowestRatio) { 
+                    lacking = nutrient;
+                    lowestRatio = ratio;
+                }
+                else if(ratio > 1.5 && ratio > highestRatio) { 
+                    overeating = nutrient;
+                    highestRatio = ratio;
+                }
             }
         });
 

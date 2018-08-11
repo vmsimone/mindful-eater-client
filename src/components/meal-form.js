@@ -39,31 +39,116 @@ export class MealForm extends React.Component {
                     this.onSubmit(values) 
                 )}>
                 <label htmlFor="meal-name">Meal name:</label>
-                <Field name="meal-name" id="meal-name" type="text" component="input" required />
-
-                <label htmlFor="category">Category:</label>
-                <Field name="category" id="category" component="select" required>
+                <Field 
+                    name="meal-name" 
+                    id="meal-name" 
+                    type="text" 
+                    component="input"
+                    required
+                />
+                <label htmlFor="category">Main Category:</label>
+                <Field 
+                    name="category"
+                    id="meal-name" 
+                    type="text" 
+                    component="select"
+                    required
+                >
+                    <option value="">--</option>
                     <option value="fruits">Fruit</option>
                     <option value="vegetables">Vegetable</option>
-                    <option value="meat">Meat</option>
-                    <option value="fish">Fish</option>
+                    <option value="meat">Meat/Poultry</option>
+                    <option value="fish">Fish/Seafood</option>
                     <option value="dairy">Dairy</option>
                     <option value="eggs">Eggs</option>
-                    <option value="bread">Bread</option>
+                    <option value="bread">Bread/Grains</option>
+                    <option value="sweets">Desserts/Sweets</option>
                 </Field>
-
-                <label htmlFor="carbs">Carbohydrates:</label>
-                <Field parse={value => Number(value)} name="carbs" id="carbs" type="number" component="input" required />
+                
                 <label htmlFor="calories">Calories:</label>
-                <Field parse={value => Number(value)} name="calories" id="calories" type="number" component="input" required />
+                <Field 
+                    parse={value => Number(value)} 
+                    name="calories" 
+                    id="calories" 
+                    type="number" 
+                    component="input"
+                    min={0}
+                    max={10000}
+                    maxLength={7}
+                    step={0.1}
+                    mobile
+                    required
+                />
+                <label htmlFor="carbs">Carbohydrates:</label>
+                <Field 
+                    parse={value => Number(value)} 
+                    name="carbs" 
+                    id="carbs" 
+                    type="number" 
+                    component="input"
+                    min={0}
+                    max={10000}
+                    maxLength={7}
+                    step={0.1}
+                    mobile
+                    required
+                />
                 <label htmlFor="fat">Fat:</label>
-                <Field parse={value => Number(value)} name="fat" id="fat" type="number" component="input" required />
+                <Field 
+                    parse={value => Number(value)} 
+                    name="fat" 
+                    id="fat" 
+                    type="number" 
+                    component="input"
+                    min={0}
+                    max={10000}
+                    maxLength={7}
+                    step={0.1}
+                    mobile
+                    required
+                />
                 <label htmlFor="iron">Iron:</label>
-                <Field parse={value => Number(value)} name="iron" id="iron" type="number" component="input" required />
+                <Field 
+                    parse={value => Number(value)} 
+                    name="iron" 
+                    id="iron" 
+                    type="number" 
+                    component="input"
+                    min={0}
+                    max={10000}
+                    maxLength={7}
+                    step={0.1}
+                    mobile
+                    required
+                />
                 <label htmlFor="protein">Protein:</label>
-                <Field parse={value => Number(value)} name="protein" id="protein" type="number" component="input" required />
+                <Field 
+                    parse={value => Number(value)} 
+                    name="protein" 
+                    id="protein" 
+                    type="number" 
+                    component="input"
+                    min={0}
+                    max={10000}
+                    maxLength={7}
+                    step={0.1}
+                    mobile
+                    required
+                />
                 <label htmlFor="sugars">Sugars:</label>
-                <Field parse={value => Number(value)} name="sugars" id="sugars" type="number" component="input" required />
+                <Field 
+                    parse={value => Number(value)} 
+                    name="sugars" 
+                    id="sugars" 
+                    type="number" 
+                    component="input"
+                    min={0}
+                    max={10000}
+                    maxLength={7}
+                    step={0.1}
+                    mobile
+                    required
+                />
 
                 <button className="add-meal" type="submit">Add Meal</button>
             </form>
