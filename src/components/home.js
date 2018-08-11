@@ -6,6 +6,8 @@ import NavigationBar from './navigation-bar.js';
 import UserInfo from './user-info.js';
 import MealDiary from './meal-diary.js';
 import DietPage from './diet-page.js';
+import LandingPage from './landing-page.js';
+import Login from './login-form.js';
 
 class Home extends React.Component {
   render() {
@@ -16,7 +18,8 @@ class Home extends React.Component {
             <NavigationBar />
           </nav>
           <main>
-          <Route exact path="/" component={UserInfo} />
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/login" component={Login} />
             <Route exact path="/home" component={UserInfo} />
             <Route exact path="/meal-diary" component={MealDiary} />
             <Route exact path="/diet" component={DietPage} />
