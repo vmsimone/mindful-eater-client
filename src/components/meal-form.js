@@ -36,21 +36,21 @@ export class MealForm extends React.Component {
         return (
             <form
                 onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values) 
+                    this.onSubmit(values)
                 )}>
                 <label htmlFor="meal-name">Meal name:</label>
-                <Field 
-                    name="meal-name" 
-                    id="meal-name" 
-                    type="text" 
+                <Field
+                    name="meal-name"
+                    id="meal-name"
+                    type="text"
                     component="input"
                     required
                 />
                 <label htmlFor="category">Main Category:</label>
-                <Field 
+                <Field
                     name="category"
-                    id="meal-name" 
-                    type="text" 
+                    id="meal-name"
+                    type="text"
                     component="select"
                     required
                 >
@@ -64,13 +64,13 @@ export class MealForm extends React.Component {
                     <option value="bread">Bread/Grains</option>
                     <option value="sweets">Desserts/Sweets</option>
                 </Field>
-                
+
                 <label htmlFor="calories">Calories:</label>
-                <Field 
-                    parse={value => Number(value)} 
-                    name="calories" 
-                    id="calories" 
-                    type="number" 
+                <Field
+                    parse={value => Number(value)}
+                    name="calories"
+                    id="calories"
+                    type="number"
                     component="input"
                     min={0}
                     max={10000}
@@ -78,13 +78,13 @@ export class MealForm extends React.Component {
                     step={0.1}
                     mobile
                     required
-                />
+                />g
                 <label htmlFor="carbs">Carbohydrates:</label>
-                <Field 
-                    parse={value => Number(value)} 
-                    name="carbs" 
-                    id="carbs" 
-                    type="number" 
+                <Field
+                    parse={value => Number(value)}
+                    name="carbs"
+                    id="carbs"
+                    type="number"
                     component="input"
                     min={0}
                     max={10000}
@@ -92,13 +92,13 @@ export class MealForm extends React.Component {
                     step={0.1}
                     mobile
                     required
-                />
+                />g
                 <label htmlFor="fat">Fat:</label>
-                <Field 
-                    parse={value => Number(value)} 
-                    name="fat" 
-                    id="fat" 
-                    type="number" 
+                <Field
+                    parse={value => Number(value)}
+                    name="fat"
+                    id="fat"
+                    type="number"
                     component="input"
                     min={0}
                     max={10000}
@@ -106,13 +106,13 @@ export class MealForm extends React.Component {
                     step={0.1}
                     mobile
                     required
-                />
+                />g
                 <label htmlFor="iron">Iron:</label>
-                <Field 
-                    parse={value => Number(value)} 
-                    name="iron" 
-                    id="iron" 
-                    type="number" 
+                <Field
+                    parse={value => Number(value)}
+                    name="iron"
+                    id="iron"
+                    type="number"
                     component="input"
                     min={0}
                     max={10000}
@@ -120,13 +120,13 @@ export class MealForm extends React.Component {
                     step={0.1}
                     mobile
                     required
-                />
+                />mg
                 <label htmlFor="protein">Protein:</label>
-                <Field 
-                    parse={value => Number(value)} 
-                    name="protein" 
-                    id="protein" 
-                    type="number" 
+                <Field
+                    parse={value => Number(value)}
+                    name="protein"
+                    id="protein"
+                    type="number"
                     component="input"
                     min={0}
                     max={10000}
@@ -134,13 +134,13 @@ export class MealForm extends React.Component {
                     step={0.1}
                     mobile
                     required
-                />
+                />g
                 <label htmlFor="sugars">Sugars:</label>
-                <Field 
-                    parse={value => Number(value)} 
-                    name="sugars" 
-                    id="sugars" 
-                    type="number" 
+                <Field
+                    parse={value => Number(value)}
+                    name="sugars"
+                    id="sugars"
+                    type="number"
                     component="input"
                     min={0}
                     max={10000}
@@ -148,7 +148,7 @@ export class MealForm extends React.Component {
                     step={0.1}
                     mobile
                     required
-                />
+                />g
 
                 <button className="add-meal" type="submit">Add Meal</button>
             </form>

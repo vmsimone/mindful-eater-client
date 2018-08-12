@@ -11,10 +11,10 @@ const initialState = {
 };
 
 const dailyRecommendedNutrients = {
-    carbs: 275, 
+    carbs: 275,
     iron: 13,
     protein: 51,
-    fat: 60, 
+    fat: 60,
     sugar: 32
 }
 
@@ -23,46 +23,52 @@ const possibleRecommendations = {
         carbs: ["apples",  "oranges"],
         iron: ["tofu",  "lentils"],
         protein: ["almonds",  "broccoli"],
-        fat: ["avocados",  "dark chocolate"]
+        fat: ["avocados",  "dark chocolate"],
+        sugars: ["berries", "fruit"]
     },
     vegetarian: {
         carbs: ["bananas",  "oranges"],
         iron: ["cashews",  "spinach"],
         protein: ["quinoa",  "oats"],
-        fat: ["cheese",  "nuts"]
+        fat: ["cheese",  "nuts"],
+        sugars: ["berries", "fruit"]
     },
     pescatarian: {
         carbs: ["sweet potatoes",  "beets"],
         iron: ["oysters",  "potatoes"],
         protein: ["shrimp",  "tuna"],
-        fat: ["fish",  "eggs"]
+        fat: ["fish",  "eggs"],
+        sugars: ["berries", "fruit"]
     },
     glutenFree: {
         carbs: ["quinoa",  "oats"],
         iron: ["turkey",  "beef"],
         protein: ["chicken",  "brussel sprouts"],
-        fat: ["olive oil",  "yogurt"]
+        fat: ["olive oil",  "yogurt"],
+        sugars: ["berries", "fruit"]
     },
     paleo: {
         carbs: ["bananas",  "beets"],
         iron: ["beef",  "chicken"],
         protein: ["eggs",  "turkey"],
-        fat: ["fish",  "nuts"]
+        fat: ["fish",  "nuts"],
+        sugars: ["berries", "fruit"]
     },
     none: {
         carbs: ["sweet potatoes",  "beets"],
         iron: ["turkey",  "beef"],
         protein: ["almonds",  "broccoli"],
-        fat: ["olive oil",  "yogurt"]
+        fat: ["olive oil",  "yogurt"],
+        sugars: ["berries", "fruit"]
     }
 }
 
 function sumNutrients(mealsEaten) {
     let totalCalories = 0;
-    let totalCarbs =  0; 
-    let totalIron =  0; 
-    let totalProtein =  0; 
-    let totalFat =  0; 
+    let totalCarbs =  0;
+    let totalIron =  0;
+    let totalProtein =  0;
+    let totalFat =  0;
     let totalSugar =  0;
 
     mealsEaten.forEach(meal => {
@@ -75,10 +81,10 @@ function sumNutrients(mealsEaten) {
     });
     const totals = {
         calories: Math.round( totalCalories * 10) / 10,
-        carbs: Math.round( totalCarbs * 10) / 10, 
+        carbs: Math.round( totalCarbs * 10) / 10,
         iron: Math.round( totalIron * 10) / 10,
-        protein: Math.round( totalProtein * 10) / 10, 
-        fat: Math.round( totalFat * 10) / 10, 
+        protein: Math.round( totalProtein * 10) / 10,
+        fat: Math.round( totalFat * 10) / 10,
         sugar: Math.round( totalSugar * 10) / 10
     };
     return totals;
@@ -100,7 +106,7 @@ export default (state = initialState, action) => {
 
         //filter mealsEaten by date in some way
         return Object.assign({}, state, {
-            
+
         });
     }
     else if (action.type === actions.ADD_MEAL) {
@@ -161,31 +167,29 @@ export default (state = initialState, action) => {
         let weRecommend;
 
         Object.keys(totalNutrients).forEach(nutrient => {
-            if (nutrient !== "sugars") {
-                console.log(totalNutrients[nutrient]);
-                const ratio = (totalNutrients[nutrient] / dailyRecommendedNutrients[nutrient]);
-                console.log(ratio);
-                if (ratio < 0.7 && ratio < lowestRatio) { 
-                    lacking = nutrient;
-                    lowestRatio = ratio;
-                }
-                else if(ratio > 1.5 && ratio > highestRatio) { 
-                    overeating = nutrient;
-                    highestRatio = ratio;
-                }
+            console.log(totalNutrients[nutrient]);
+            const ratio = (totalNutrients[nutrient] / dailyRecommendedNutrients[nutrient]);
+            console.log(ratio);
+            if (ratio < 0.7 && ratio < lowestRatio) {
+                lacking = nutrient;
+                lowestRatio = ratio;
+            }
+            else if(ratio > 1.5 && ratio > highestRatio) {
+                overeating = nutrient;
+                highestRatio = ratio;
             }
         });
 
-        if (lacking ===  "none" && overeating === "none") { 
-            weRecommend = "You're eating quite healthy today!"; 
+        if (lacking ===  "none" && overeating === "none") {
+            weRecommend = "You're eating quite healthy today!";
         } else if (lacking === "none") {
-            weRecommend = `You've eaten a lot of ${overeating} today.`; 
-        } else { 
+            weRecommend = `You've eaten a lot of ${overeating} today.`;
+        } else {
             weRecommend = `
-                Your diet is lacking in ${lacking}. 
-                We recommend eating some ${possibleRecommendations[state.diet][lacking][0]} 
+                Your diet is lacking in ${lacking}.
+                We recommend eating some ${possibleRecommendations[state.diet][lacking][0]}
                 and ${possibleRecommendations[state.diet][lacking][1]}.
-            `; 
+            `;
         }
 
         if (mealsEaten.length === 0) {
