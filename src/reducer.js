@@ -15,7 +15,7 @@ const dailyRecommendedNutrients = {
     iron: 13,
     protein: 51,
     fat: 60,
-    sugar: 32
+    sugars: 32
 }
 
 const possibleRecommendations = {
