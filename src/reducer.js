@@ -6,6 +6,45 @@ const initialState = {
     lifestyle: 'sedentary', //lifestyle not currently used
     status: 'Click Refresh',
     mealsEaten: [
+        {
+            "name": "Banana",
+            "category": "fruits",
+            "nutrients": {
+                "calories": 118,
+                "carbs": 26.95,
+                "fat": 0.39,
+                "iron": 0.31,
+                "protein": 1.29,
+                "sugars": 14.43
+            },
+            "user": "me"
+        },
+        {
+            "name": "Scrambled Eggs",
+            "category": "eggs",
+            "nutrients": {
+                "calories": 298,
+                "carbs": 3.22,
+                "fat": 21.96,
+                "iron": 2.62,
+                "protein": 9.99,
+                "sugars": 2.78
+            },
+            "user": "me"
+        },
+        {
+            "name": "Quinoa",
+            "category": "vegetables",
+            "nutrients": {
+                "calories": 222,
+                "carbs": 39.41,
+                "fat": 3.55,
+                "iron": 2.76,
+                "protein": 8.14,
+                "sugars": 1.61
+            },
+            "user": "me"
+        }
     ],
     recommendations: ""
 };
@@ -115,13 +154,11 @@ export default (state = initialState, action) => {
                 "name": action.meal,
                 "category": action.category,
                 "nutrients": action.nutrients,
-                "okayFor": [],
                 "user": "me"
             }]
         });
     }
     else if (action.type === actions.CHANGE_MEAL) {
-        //const {mealsEaten} = state;
 
         return Object.assign({}, state, {
 

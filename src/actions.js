@@ -26,9 +26,10 @@ export const addMeal = (meal, category, nutrients, index) => ({
 });
 
 export const CHANGE_MEAL = 'CHANGE_MEAL';
-export const changeMeal = meal => ({
+export const changeMeal = (mealNutrients, updates) => ({
     type: CHANGE_MEAL,
-    meal
+    mealNutrients,
+    updates
 });
 
 export const REMOVE_MEAL = 'REMOVE_MEAL';

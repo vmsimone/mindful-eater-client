@@ -5,11 +5,6 @@ import './premade-diet.css';
 export default function PremadeDiet(props) {
     const {dietName, restrictions, iconList} = props;
 
-    // const bg = {background: 'green'}
-    //     if (this.state.diet === this.props.dietName) {
-    //     bg = {background: 'blue'}
-    // }
-
     const displayImage = {
         "fruits": {
             alt: "fruits",

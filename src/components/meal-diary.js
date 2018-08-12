@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import MealForm from './meal-form.js';
 import Meal from './meal.js';
+import MealEditor from './meal-editor-form';
 
 import './meal-diary.css';
 
@@ -14,6 +15,10 @@ export class MealDiary extends React.Component {
     });
     return arr;
   }
+
+  editNutrients() {
+
+  }
   
   render() {
     const meals = this.props.mealsEaten.map((meal, index) => {
@@ -21,12 +26,17 @@ export class MealDiary extends React.Component {
         meal.nutrients
       );
       return (
-        <li key={index}>
-          <Meal 
-            mealName={meal.name}
-            nutrients={nutrientList}
-            category={meal.category}
-          />
+        <li
+          key={index}
+          onClick={() => console.log(meal.nutrients)}
+          className={this.props.editing === true ? 'editing' : ''}
+        >
+            <Meal
+              mealName={meal.name}
+              nutrients={nutrientList}
+              category={meal.category}
+            />
+            <button>Remove</button>
         </li>
       )
     });
