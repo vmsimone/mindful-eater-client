@@ -85,7 +85,7 @@ function sumNutrients(mealsEaten) {
         iron: Math.round( totalIron * 10) / 10,
         protein: Math.round( totalProtein * 10) / 10,
         fat: Math.round( totalFat * 10) / 10,
-        sugar: Math.round( totalSugar * 10) / 10
+        sugars: Math.round( totalSugar * 10) / 10
     };
     return totals;
 }
@@ -151,7 +151,7 @@ export default (state = initialState, action) => {
             ${totalNutrients.fat}g of fat,
             ${totalNutrients.iron}mg of iron,
             ${totalNutrients.protein}g of protein, and
-            ${totalNutrients.sugar}g of sugar
+            ${totalNutrients.sugars}g of sugar
             `
         });
     }
