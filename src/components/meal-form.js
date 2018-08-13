@@ -76,7 +76,6 @@ export class MealForm extends React.Component {
                     max={10000}
                     maxLength={7}
                     step={0.1}
-                    mobile
                     required
                 />g
                 <label htmlFor="carbs">Carbohydrates:</label>
@@ -90,7 +89,6 @@ export class MealForm extends React.Component {
                     max={10000}
                     maxLength={7}
                     step={0.1}
-                    mobile
                     required
                 />g
                 <label htmlFor="fat">Fat:</label>
@@ -104,7 +102,6 @@ export class MealForm extends React.Component {
                     max={10000}
                     maxLength={7}
                     step={0.1}
-                    mobile
                     required
                 />g
                 <label htmlFor="iron">Iron:</label>
@@ -118,7 +115,6 @@ export class MealForm extends React.Component {
                     max={10000}
                     maxLength={7}
                     step={0.1}
-                    mobile
                     required
                 />mg
                 <label htmlFor="protein">Protein:</label>
@@ -132,7 +128,6 @@ export class MealForm extends React.Component {
                     max={10000}
                     maxLength={7}
                     step={0.1}
-                    mobile
                     required
                 />g
                 <label htmlFor="sugars">Sugars:</label>
@@ -146,7 +141,6 @@ export class MealForm extends React.Component {
                     max={10000}
                     maxLength={7}
                     step={0.1}
-                    mobile
                     required
                 />g
 

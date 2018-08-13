@@ -17,6 +17,7 @@ const initialState = {
                 "protein": 1.29,
                 "sugars": 14.43
             },
+            "editing": false,
             "user": "me"
         },
         {
@@ -30,6 +31,7 @@ const initialState = {
                 "protein": 9.99,
                 "sugars": 2.78
             },
+            "editing": false,
             "user": "me"
         },
         {
@@ -43,6 +45,7 @@ const initialState = {
                 "protein": 8.14,
                 "sugars": 1.61
             },
+            "editing": false,
             "user": "me"
         }
     ],
@@ -140,28 +143,22 @@ export default (state = initialState, action) => {
 
         });
     }
-    else if (action.type === actions.VIEW_MEALS) {
-        //const {mealsEaten} = state;
-
-        //filter mealsEaten by date in some way
-        return Object.assign({}, state, {
-
-        });
-    }
     else if (action.type === actions.ADD_MEAL) {
         return Object.assign({}, state, {
             mealsEaten: [...state.mealsEaten, {
                 "name": action.meal,
                 "category": action.category,
                 "nutrients": action.nutrients,
+                "editing": false,
                 "user": "me"
             }]
         });
     }
     else if (action.type === actions.CHANGE_MEAL) {
-
+        const {mealsEaten} = state;
+        mealsEaten[action.index].nutrients = action.updatedNutrients;
         return Object.assign({}, state, {
-
+            mealsEaten: mealsEaten
         });
     }
     else if (action.type === actions.REMOVE_MEAL) {

@@ -3,40 +3,46 @@ import {connect} from 'react-redux';
 
 import MealForm from './meal-form.js';
 import Meal from './meal.js';
-import MealEditor from './meal-editor-form';
 
 import './meal-diary.css';
 
 export class MealDiary extends React.Component {
-  convertObjectToArray(obj) {
-    const arr = [];
-    Object.keys(obj).forEach(key => {
-        arr.push(`${key}: ${obj[key]}g`);
-    });
-    return arr;
+  constructor(props) {
+    super(props);
+    this.state = {
+      editing: -1
+    }
   }
 
-  editNutrients() {
-
+  editNutrients(index) {
+    console.log(index);
+    // if (index === this.state.editing) {
+    //   this.setState({
+    //     editing: -1
+    //   })
+    // } else {
+      this.setState({
+        editing: index
+      })
+    //}
   }
   
   render() {
     const meals = this.props.mealsEaten.map((meal, index) => {
-      const nutrientList = this.convertObjectToArray(
-        meal.nutrients
-      );
       return (
         <li
           key={index}
-          onClick={() => console.log(meal.nutrients)}
-          className={this.props.editing === true ? 'editing' : ''}
+          onClick={() => this.editNutrients(index)}
+          className={this.state.editing === index ? 'editing' : ''}
         >
-            <Meal
-              mealName={meal.name}
-              nutrients={nutrientList}
-              category={meal.category}
-            />
-            <button>Remove</button>
+          <Meal
+            mealName={meal.name}
+            nutrients={meal.nutrients}
+            category={meal.category}
+            editing={this.state.editing === index}
+            index={index}
+          />
+          <button>Remove</button>
         </li>
       )
     });

@@ -10,12 +10,6 @@ export const logOut = () => ({
     type: LOG_OUT
 });
 
-export const VIEW_MEALS = 'VIEW_MEALS';
-export const viewMeals = selectedDate => ({
-    type: VIEW_MEALS,
-    selectedDate
-});
-
 export const ADD_MEAL = 'ADD_MEAL';
 export const addMeal = (meal, category, nutrients, index) => ({
     type: ADD_MEAL,
@@ -26,10 +20,10 @@ export const addMeal = (meal, category, nutrients, index) => ({
 });
 
 export const CHANGE_MEAL = 'CHANGE_MEAL';
-export const changeMeal = (mealNutrients, updates) => ({
+export const changeMeal = (index, updatedNutrients) => ({
     type: CHANGE_MEAL,
-    mealNutrients,
-    updates
+    index,
+    updatedNutrients
 });
 
 export const REMOVE_MEAL = 'REMOVE_MEAL';

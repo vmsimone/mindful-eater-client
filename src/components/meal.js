@@ -1,9 +1,11 @@
 import React from 'react';
 
+import MealEditor from './meal-editor-form.js';
+
 import './meal.css';
 
 export default function Meal (props) {
-    const {mealName, nutrients, category} = props;
+    const {mealName, nutrients, category, editing, index} = props;
 
     const displayImage = {
         "fruits": {
@@ -40,19 +42,30 @@ export default function Meal (props) {
         }
     }
 
-    const nutrientList = nutrients.map((nutrient, index) => {
+    const nutrientArray = [];
+    Object.keys(nutrients).forEach(nutrientName => {
+        nutrientArray.push([nutrientName, nutrients[nutrientName]]);
+    });
+
+    const nutrientList = nutrientArray.map((nutrient, index) => {
+        let nutrientName = nutrient[0];
+        let value = nutrient[1];
+        let unit = (nutrientName === "iron" ? "mg" : "g");
+
         return (
-            <li key={index}>{nutrient}<br /></li>
+            <li key={index}>{nutrientName}: {value}{unit}<br /></li>
         )
-    })
+    });
 
     return (
         <div className="food-item">
-        <img src={displayImage[category].src} alt={displayImage[category].alt} />
-        <h3>{mealName}</h3>
-        <ul>
-            {nutrientList}
-        </ul>
+            <img src={displayImage[category].src} alt={displayImage[category].alt} />
+            <h3>{mealName}</h3>
+            <ul>
+                {editing ? 
+                    <MealEditor index={index}/> : nutrientList
+                }
+            </ul>
         </div>
     );
 }
