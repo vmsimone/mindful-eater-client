@@ -162,10 +162,10 @@ export default (state = initialState, action) => {
         });
     }
     else if (action.type === actions.REMOVE_MEAL) {
-        //const {mealsEaten} = state;
-
+        const {mealsEaten} = state;
+        mealsEaten.splice(action.mealIndex, 1);
         return Object.assign({}, state, {
-
+            mealsEaten: mealsEaten
         });
     }
     else if (action.type === actions.CHANGE_DIET) {

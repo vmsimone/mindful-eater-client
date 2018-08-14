@@ -5,7 +5,7 @@ import MealEditor from './meal-editor-form.js';
 import './meal.css';
 
 export default function Meal (props) {
-    const {mealName, nutrients, category, editing, index, onUpdate} = props;
+    const {mealName, nutrients, category, editing, index} = props;
 
     const displayImage = {
         "fruits": {
@@ -71,7 +71,6 @@ export default function Meal (props) {
                     nutrientList
                 }
             </ul>
-            {editing ? <button className="cancel" onClick={() => console.log(-1)}>Cancel</button> : ''}
         </div>
     );
 }

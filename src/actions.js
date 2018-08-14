@@ -27,9 +27,9 @@ export const changeMeal = (index, updatedNutrients) => ({
 });
 
 export const REMOVE_MEAL = 'REMOVE_MEAL';
-export const removeMeal = meal => ({
+export const removeMeal = mealIndex => ({
     type: REMOVE_MEAL,
-    meal
+    mealIndex
 });
 
 export const CHANGE_DIET = 'CHANGE_DIET';

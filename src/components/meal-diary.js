@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import MealForm from './meal-form.js';
 import Meal from './meal.js';
 
+import {removeMeal} from '../actions';
+
 import './meal-diary.css';
 
 export class MealDiary extends React.Component {
@@ -13,6 +15,10 @@ export class MealDiary extends React.Component {
       editing: -1,
       addingMeal: false
     }
+  }
+
+  removeMeal(index) {
+    this.props.dispatch(removeMeal(index));
   }
 
   editNutrients(index) {
@@ -37,7 +43,7 @@ export class MealDiary extends React.Component {
             index={index}
             onUpdate={(index) => this.editNutrients(index)}
           />
-          <button>Remove</button>
+          <button onClick={() => this.removeMeal(index)}>Remove</button>
         </li>
       )
     });
