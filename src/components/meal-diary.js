@@ -10,21 +10,15 @@ export class MealDiary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      editing: -1
+      editing: -1,
+      addingMeal: false
     }
   }
 
   editNutrients(index) {
-    console.log(index);
-    // if (index === this.state.editing) {
-    //   this.setState({
-    //     editing: -1
-    //   })
-    // } else {
-      this.setState({
-        editing: index
-      })
-    //}
+    this.setState({
+      editing: index
+    });
   }
   
   render() {
@@ -41,6 +35,7 @@ export class MealDiary extends React.Component {
             category={meal.category}
             editing={this.state.editing === index}
             index={index}
+            onUpdate={(index) => this.editNutrients(index)}
           />
           <button>Remove</button>
         </li>
@@ -51,7 +46,11 @@ export class MealDiary extends React.Component {
       <div className="MealDiary">
           <main>
             <h2>Today I've eaten...</h2>
-            <MealForm />
+            {this.state.addingMeal ? 
+              <MealForm /> 
+              : 
+              <button onClick={() => this.setState({addingMeal: true})}>Eat something</button>
+            }
             <ul className="meal-list">
               {meals}
             </ul>

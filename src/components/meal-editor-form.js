@@ -13,6 +13,7 @@ export class MealEditor extends React.Component {
     
     onSubmit(values) {
         this.changeMeal(this.props.index, values);
+        this.props.onUpdate(-1);
     }
 
     render() {
