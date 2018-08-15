@@ -17,7 +17,6 @@ const initialState = {
                 "protein": 1.29,
                 "sugars": 14.43
             },
-            "editing": false,
             "user": "me"
         },
         {
@@ -31,7 +30,6 @@ const initialState = {
                 "protein": 9.99,
                 "sugars": 2.78
             },
-            "editing": false,
             "user": "me"
         },
         {
@@ -45,7 +43,6 @@ const initialState = {
                 "protein": 8.14,
                 "sugars": 1.61
             },
-            "editing": false,
             "user": "me"
         }
     ],
@@ -149,7 +146,6 @@ export default (state = initialState, action) => {
                 "name": action.meal,
                 "category": action.category,
                 "nutrients": action.nutrients,
-                "editing": false,
                 "user": "me"
             }]
         });
