@@ -4,16 +4,16 @@ nav {
     width: 105%;
     z-index: 1;
     left: -5px;
-  }
+}
 
 nav ul {
     background: #91f38d;
     padding: 10px;
-  }
+}
 
 nav li {
-    font-family: sans-serif;
-    font-size: 20px;
+    font-family: 'Indie Flower';
+    font-size: 24px;
     margin-top: 5px;
 }
 

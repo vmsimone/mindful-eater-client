@@ -1,3 +1,5 @@
+import {API_BASE_URL} from './config.js';
+
 export const LOG_IN = 'LOG_IN';
 export const logIn = (userName, password) => ({
     type: LOG_IN,
@@ -9,6 +11,26 @@ export const LOG_OUT = 'LOG_OUT';
 export const logOut = () => ({
     type: LOG_OUT
 });
+
+export const FETCH_MEALS_SUCCESS = 'FETCH_MEALS_SUCCESS';
+export const fetchMealsSuccess = meals => ({
+    type: FETCH_MEALS_SUCCESS,
+    meals
+});
+
+export const fetchMeals = () => dispatch => {
+    fetch(`${API_BASE_URL}/my-meals`)
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then(meals => {
+            dispatch(fetchMealsSuccess(meals));
+        })
+        .catch(err => dispatch(fetchMealsSuccess(err)));
+};
 
 export const ADD_MEAL = 'ADD_MEAL';
 export const addMeal = (meal, category, nutrients, index) => ({

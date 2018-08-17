@@ -66,9 +66,13 @@ export default function Meal (props) {
                     <MealEditor 
                         index={index} 
                         onUpdate={(index) => props.onUpdate(index)}
+                        onCancel={() => props.onUpdate(-1)}
                     /> 
-                    : 
-                    nutrientList
+                    :
+                    <div> 
+                        {nutrientList}
+                        <button onClick={() => props.onUpdate(props.index)}>Edit</button>
+                    </div>
                 }
             </ul>
         </div>

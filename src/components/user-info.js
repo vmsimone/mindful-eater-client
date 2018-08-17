@@ -7,7 +7,7 @@ import Status from './status.js';
 
 export function UserInfo(props) {
   return (
-    <div className="UserInfo">
+    <div className="user-info">
       <Greeting username={props.username}/>
         <section className="desc">
           <Lifestyle myDiet={props.myDiet} myLifestyle={props.myLifestyle}/>

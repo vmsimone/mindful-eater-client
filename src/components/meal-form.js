@@ -145,6 +145,7 @@ export class MealForm extends React.Component {
                 />g
 
                 <button className="add-meal" type="submit">Add Meal</button>
+                <button onClick={this.props.onCancel()}>Cancel</button>
             </form>
         );
     }

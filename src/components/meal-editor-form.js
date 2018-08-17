@@ -46,6 +46,7 @@ export class MealEditor extends React.Component {
                 {nutrientList}
                 <br />
                 <button className="update-nutrients" type="submit">Update</button>
+                <button type="button" onClick={() => this.props.onCancel()}>Cancel</button>
             </form>
         );
     }

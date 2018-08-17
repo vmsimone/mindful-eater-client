@@ -13,7 +13,7 @@ export class Status extends React.Component {
     return (
       <div>
         <h3>Evaluation:</h3> 
-        <p>{this.props.myStatus}</p>
+        <div>{this.props.myStatus}</div>
         <p>{this.props.weRecommend}</p>
         <button onClick={() => {this.updateEvaluation()} }>Refresh</button>
       </div>

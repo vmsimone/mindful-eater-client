@@ -1,51 +1,13 @@
 import * as actions from './actions';
 
+import React from 'react';
+
 const initialState = {
     username: 'Demo User',
     diet: 'none',
     lifestyle: 'sedentary', //lifestyle not currently used
     status: 'Click Refresh',
-    mealsEaten: [
-        {
-            "name": "Banana",
-            "category": "fruits",
-            "nutrients": {
-                "calories": 118,
-                "carbs": 26.95,
-                "fat": 0.39,
-                "iron": 0.31,
-                "protein": 1.29,
-                "sugars": 14.43
-            },
-            "user": "me"
-        },
-        {
-            "name": "Scrambled Eggs",
-            "category": "eggs",
-            "nutrients": {
-                "calories": 298,
-                "carbs": 3.22,
-                "fat": 21.96,
-                "iron": 2.62,
-                "protein": 9.99,
-                "sugars": 2.78
-            },
-            "user": "me"
-        },
-        {
-            "name": "Quinoa",
-            "category": "vegetables",
-            "nutrients": {
-                "calories": 222,
-                "carbs": 39.41,
-                "fat": 3.55,
-                "iron": 2.76,
-                "protein": 8.14,
-                "sugars": 1.61
-            },
-            "user": "me"
-        }
-    ],
+    mealsEaten: [],
     recommendations: ""
 };
 
@@ -174,15 +136,22 @@ export default (state = initialState, action) => {
         const {mealsEaten} = state;
         const totalNutrients = sumNutrients(mealsEaten);
 
+        const currentStatus = (
+            <div className="status">
+                <p>You've eaten:</p>
+                <p>
+                    {totalNutrients.calories} calories,<br />
+                    {totalNutrients.carbs}g of carbohydrates,<br />
+                    {totalNutrients.fat}g of fat,<br />
+                    {totalNutrients.iron}mg of iron,<br />
+                    {totalNutrients.protein}g of protein, and<br />
+                    {totalNutrients.sugars}g of sugar
+                </p>
+            </div>
+        );
+
         return Object.assign({}, state, {
-            status: `You've eaten:
-            ${totalNutrients.calories} calories,
-            ${totalNutrients.carbs}g of carbohydrates,
-            ${totalNutrients.fat}g of fat,
-            ${totalNutrients.iron}mg of iron,
-            ${totalNutrients.protein}g of protein, and
-            ${totalNutrients.sugars}g of sugar
-            `
+            status: currentStatus
         });
     }
     else if (action.type === actions.SHOW_RECOMMENDATIONS) {
@@ -229,6 +198,9 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, {
             recommendations: weRecommend
         });
+    }
+    else if (action.type === actions.FETCH_MEALS_SUCCESS) {
+        return action.meals;
     }
     return state;
 };

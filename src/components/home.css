@@ -6,22 +6,21 @@ main {
   position: relative;
   margin-top: 100px;
   margin-bottom: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+  font-family: 'Indie Flower';
+  font-size: 40px;
+}
+
+h3 {
+  font-family: 'Indie Flower';
+  font-size: 40px;
 }
 
 section {
   padding: 20px;
-}
-
-.user-desc {
-  background: #999999;
-}
-
-.user-status {
-  background: #cccccc;
-}
-
-.user-recommendations {
-  background: #999999;
 }
 
 @media only screen and (min-width: 640px) {

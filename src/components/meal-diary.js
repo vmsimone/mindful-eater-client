@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import MealForm from './meal-form.js';
 import Meal from './meal.js';
 
-import {removeMeal} from '../actions';
+import {removeMeal, fetchMeals} from '../actions';
 
 import './meal-diary.css';
 
@@ -15,6 +15,10 @@ export class MealDiary extends React.Component {
       editing: -1,
       addingMeal: false
     }
+  }
+
+  componentDidMount() {
+    this.props.dispatch(fetchMeals());
   }
 
   removeMeal(index) {
@@ -29,10 +33,10 @@ export class MealDiary extends React.Component {
   
   render() {
     const meals = this.props.mealsEaten.map((meal, index) => {
+      console.log(meal);
       return (
         <li
           key={index}
-          onClick={() => this.editNutrients(index)}
           className={this.state.editing === index ? 'editing' : ''}
         >
           <Meal
@@ -53,7 +57,10 @@ export class MealDiary extends React.Component {
           <main>
             <h2>Today I've eaten...</h2>
             {this.state.addingMeal ? 
-              <MealForm /> 
+              <div>
+                <MealForm />
+                <button onClick={() => this.setState({addingMeal: false})}>Cancel</button>
+              </div> 
               : 
               <button onClick={() => this.setState({addingMeal: true})}>Eat something</button>
             }
