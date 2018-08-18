@@ -112,14 +112,16 @@ export default (state = initialState, action) => {
             }]
         });
     }
-    else if (action.type === actions.CHANGE_MEAL) {
+    else if (action.type === actions.CHANGE_MEAL_SUCCESS) {
         const {mealsEaten} = state;
         mealsEaten[action.index].nutrients = action.updatedNutrients;
+        console.log(mealsEaten);
         return Object.assign({}, state, {
             mealsEaten: mealsEaten
         });
     }
-    else if (action.type === actions.REMOVE_MEAL) {
+    else if (action.type === actions.REMOVE_MEAL_SUCCESS) {
+        console.log("meal removed");
         const {mealsEaten} = state;
         mealsEaten.splice(action.mealIndex, 1);
         return Object.assign({}, state, {
@@ -127,7 +129,6 @@ export default (state = initialState, action) => {
         });
     }
     else if (action.type === actions.CHANGE_DIET) {
-        console.log(action.newDiet);
         return Object.assign({}, state, {
             diet: action.newDiet
         });
@@ -155,7 +156,6 @@ export default (state = initialState, action) => {
         });
     }
     else if (action.type === actions.SHOW_RECOMMENDATIONS) {
-        console.log(state);
         const {mealsEaten} = state;
         const totalNutrients = sumNutrients(mealsEaten);
 
@@ -167,9 +167,7 @@ export default (state = initialState, action) => {
         let weRecommend;
 
         Object.keys(totalNutrients).forEach(nutrient => {
-            console.log(totalNutrients[nutrient]);
             const ratio = (totalNutrients[nutrient] / dailyRecommendedNutrients[nutrient]);
-            console.log(ratio);
             if (ratio < 0.7 && ratio < lowestRatio) {
                 lacking = nutrient;
                 lowestRatio = ratio;
@@ -201,6 +199,8 @@ export default (state = initialState, action) => {
         });
     }
     else if (action.type === actions.FETCH_MEALS_SUCCESS) {
+        console.log("fetched");
+        console.log(action.meals);
         return Object.assign({}, state, {
             mealsEaten: action.meals
         });

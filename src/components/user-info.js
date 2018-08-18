@@ -5,7 +5,13 @@ import Greeting from './greeting.js';
 import Lifestyle from './lifestyle.js';
 import Status from './status.js';
 
+import {fetchMeals} from '../actions';
+
+import './user-info.css';
+
 export function UserInfo(props) {
+  props.dispatch(fetchMeals());
+
   return (
     <div className="user-info">
       <Greeting username={props.username}/>

@@ -1,4 +1,17 @@
-.user-info {
+.landing-page h1 {
+    font-family: 'Indie Flower';
+    font-size: 54px;
+}
+
+.landing-page h3 {
+    font-size: 32px;
+}
+
+.landing-page p {
+    font-size: 18px;
+}
+
+.landing-page main {
     width: 80%;
     padding: 5%;
     margin: 0 auto;
@@ -7,14 +20,4 @@
     );
     margin-bottom: 10%;
     border-radius: 5px;
-}
-
-.user-info h3 {
-    font-family: 'cursive', 'Indie Flower';
-    font-size: 32px;
-}
-
-.user-info p {
-    font-family: 'sans', 'Open Sans';
-    font-size: 20px;
 }

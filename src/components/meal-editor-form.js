@@ -2,17 +2,18 @@ import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import {connect} from 'react-redux';
 
-import {changeMeal} from '../actions';
+import {changeMeal, fetchMeals} from '../actions';
 
 import './meal.css';
 
 export class MealEditor extends React.Component {
-    changeMeal(index, nutrientObj) {
-        this.props.dispatch(changeMeal(index, nutrientObj));
+    changeMeal(index, id, nutrientObj) {
+        this.props.dispatch(changeMeal(index, id, nutrientObj));
+        this.props.dispatch(fetchMeals());
     }
     
     onSubmit(values) {
-        this.changeMeal(this.props.index, values);
+        this.changeMeal(this.props.index, this.props.id, values);
         this.props.onUpdate(-1);
     }
 

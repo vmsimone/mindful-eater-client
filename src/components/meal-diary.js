@@ -15,15 +15,14 @@ export class MealDiary extends React.Component {
       editing: -1,
       addingMeal: false
     }
-    
   }
 
   componentDidMount() {
     this.props.dispatch(fetchMeals());
   }
 
-  removeMeal(index) {
-    this.props.dispatch(removeMeal(index));
+  removeMeal(id, index) {
+    this.props.dispatch(removeMeal(id, index));
   }
 
   editNutrients(index) {
@@ -45,17 +44,18 @@ export class MealDiary extends React.Component {
             category={meal.category}
             editing={this.state.editing === index}
             index={index}
+            id={meal.id}
             onUpdate={(index) => this.editNutrients(index)}
           />
-          <button onClick={() => this.removeMeal(index)}>Remove</button>
+          <button onClick={() => this.removeMeal(meal.id, index)}>Remove</button>
         </li>
       )
     });
 
     return (
-      <div className="MealDiary">
+      <div className="meal-diary">
           <main>
-            <h2>Today I've eaten...</h2>
+            <h2>Today you've eaten...</h2>
             {this.state.addingMeal ? 
               <div>
                 <MealForm />

@@ -1,8 +1,43 @@
-main {
-    text-align: center;
-    font-size: 24px;
+.meal-diary main {
+    width: 80%;
+    padding: 5%;
+    margin: 0 auto;
+    background: url(
+        'http://www.photos-public-domain.com/wp-content/uploads/2012/05/ivory-off-white-paper-texture.jpg'
+    );
+    margin-bottom: 10%;
+    border-radius: 5px;
+}
+
+.meal-diary h2 {
+    font-family: 'Indie Flower';
+    font-size: 48px;
+}
+
+.meal-diary p {
+    font-size: 18px;
+}
+
+.meal-diary button {
+    font-family: 'sans', 'Open Sans';
+    background: greenyellow;
+    color: darkgreen;
+    font-size: 18px;
+    margin-top: 10px;
+    border-bottom: green 2px solid;
+    border-right: green 2px solid;
+    border-top: lightgreen 2px solid;
+    border-left: lightgreen 2px solid;
+}
+
+.meal-diary button:hover {
+    background: yellow;
 }
 
 .meal-list {
+    width: 90%;
+    padding: 0;
+    margin: 0 auto;
     list-style-type: none;
+    text-indent: none;
 }

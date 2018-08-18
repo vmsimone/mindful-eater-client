@@ -17,7 +17,7 @@ export class Lifestyle extends React.Component {
   render() {
     return (
       <div>
-        <h3>Currently, I am:</h3> 
+        <h3>Currently, you are:</h3> 
         <p>{this.checkDiet(this.props.myDiet)}</p>
       </div>
     );

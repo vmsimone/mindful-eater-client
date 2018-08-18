@@ -65,16 +65,47 @@ export const addMeal = (meal, category, nutrients) => dispatch => {
         .catch(err => dispatch(addMealSuccess(err)));
 };
 
-export const CHANGE_MEAL = 'CHANGE_MEAL';
-export const changeMeal = (index, updatedNutrients) => ({
-    type: CHANGE_MEAL,
+export const changeMeal = (index, id, updatedNutrients) => dispatch => {
+    console.log(updatedNutrients);
+    fetch(`${API_BASE_URL}/my-meals/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+            id: id,
+            nutrients: updatedNutrients
+        })
+    })
+    .then(res => {
+        console.log(res.ok);
+        if(!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json()
+    });
+    dispatch(addMealSuccess(index, updatedNutrients));
+}
+
+export const CHANGE_MEAL_SUCCESS = 'CHANGE_MEAL_SUCCESS';
+export const changeMealSuccess = (index, updatedNutrients) => ({
+    type: CHANGE_MEAL_SUCCESS,
     index,
     updatedNutrients
 });
 
-export const REMOVE_MEAL = 'REMOVE_MEAL';
-export const removeMeal = mealIndex => ({
-    type: REMOVE_MEAL,
+export const removeMeal = (id, index) => dispatch => {
+    fetch(`${API_BASE_URL}/my-meals/${id}`, {
+        method: 'DELETE'
+    })
+    .then(res => {
+        if(!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+    });
+    dispatch(removeMealSuccess(index));
+}
+
+export const REMOVE_MEAL_SUCCESS = 'REMOVE_MEAL_SUCCESS';
+export const removeMealSuccess = mealIndex => ({
+    type: REMOVE_MEAL_SUCCESS,
     mealIndex
 });
 

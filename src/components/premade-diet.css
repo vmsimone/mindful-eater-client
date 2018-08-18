@@ -1,5 +1,11 @@
-h3 {
-  font-size: 24px;
+.diet h3 {
+  font-family: 'cursive', 'Indie Flower';
+  font-size: 32px;
+}
+
+.diet p {
+  font-family: 'sans', 'Open Sans';
+  font-size: 18px;
 }
 
 .icon-list ul {

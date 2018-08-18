@@ -1,35 +1,53 @@
-.food-item {
-    width: 80%;
+.meal {
     background: #00972e;
     color: white;
+    font-family: 'sans', 'Open sans';
     display: block;
-    margin: 0 auto;
     margin-top: 50px;
     border-radius: 10px;
+    border: solid 2px black;
     padding: 10px;
 }
   
-.food-item img {
+.meal img {
     height: 70px;
     float: left;
     border: black solid 2px;
     border-radius: 100%;
     margin: 10px;
+    margin-right: 20px;
     background: white;
     padding: 5px;
 }
 
-.food-item h3 {
+.meal h3 {
+    font-family: 'cursive', 'Indie Flower';
+    font-size: 32px;
     text-align: left;
 }
 
-.food-item ul {
-    padding: 0;
-    text-align: left;
-    margin-left: 110px;
+.meal ul {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5px;
 }
 
-.food-item li {
-    font-size: 20px;
+.nutrient-list {
+    text-align: left;
+    font-family: 'sans', 'Open Sans';
+    font-size: 18px;
+}
+
+.nutrient-list button {
+    text-align: center;
+    background: orange;
+}
+
+.meal li {
     display: inline;
+    text-indent: none;
+}
+
+.meal form {
+    text-align: center;
 }

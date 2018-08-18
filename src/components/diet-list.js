@@ -22,8 +22,7 @@ export class DietList extends React.Component {
 
     render() {
         return (
-            <div className="Diet-List">
-                <h2>Current Diet: {this.checkDiet(this.props.diet)}</h2>
+            <div className="diet-list">
                 <div 
                     onClick={() => this.changeDiet("none")}
                     className={this.props.diet === 'none' ? 'selected' : ''}

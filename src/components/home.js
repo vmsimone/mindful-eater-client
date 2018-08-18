@@ -14,7 +14,7 @@ class Home extends React.Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="home">
           <nav>
             <NavigationBar />
           </nav>
