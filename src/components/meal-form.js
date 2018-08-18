@@ -2,13 +2,15 @@ import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import {connect} from 'react-redux';
 
-import {addMeal, changeStatus, showRecommendations} from '../actions';
+import {addMeal, fetchMeals, changeStatus, showRecommendations} from '../actions';
 
 import './meal-form.css'
 
 export class MealForm extends React.Component {
     addMeal(name, category, nutrients) {
         this.props.dispatch(addMeal(name, category, nutrients));
+        this.props.dispatch(fetchMeals());
+        this.updateEvaluation();
     }
 
     updateEvaluation() {
@@ -28,9 +30,8 @@ export class MealForm extends React.Component {
                 "protein": values.protein,
                 "sugars": values.sugars
             }
-        }
+        };
         this.addMeal(newMeal.name, newMeal.category, newMeal.nutrients);
-        this.updateEvaluation();
     }
     render() {
         return (
@@ -145,7 +146,6 @@ export class MealForm extends React.Component {
                 />g
 
                 <button className="add-meal" type="submit">Add Meal</button>
-                <button onClick={this.props.onCancel()}>Cancel</button>
             </form>
         );
     }

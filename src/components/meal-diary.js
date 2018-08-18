@@ -15,6 +15,7 @@ export class MealDiary extends React.Component {
       editing: -1,
       addingMeal: false
     }
+    
   }
 
   componentDidMount() {
@@ -33,7 +34,6 @@ export class MealDiary extends React.Component {
   
   render() {
     const meals = this.props.mealsEaten.map((meal, index) => {
-      console.log(meal);
       return (
         <li
           key={index}

@@ -102,7 +102,7 @@ export default (state = initialState, action) => {
 
         });
     }
-    else if (action.type === actions.ADD_MEAL) {
+    else if (action.type === actions.ADD_MEAL_SUCCESS) {
         return Object.assign({}, state, {
             mealsEaten: [...state.mealsEaten, {
                 "name": action.meal,
@@ -155,6 +155,7 @@ export default (state = initialState, action) => {
         });
     }
     else if (action.type === actions.SHOW_RECOMMENDATIONS) {
+        console.log(state);
         const {mealsEaten} = state;
         const totalNutrients = sumNutrients(mealsEaten);
 
@@ -200,7 +201,9 @@ export default (state = initialState, action) => {
         });
     }
     else if (action.type === actions.FETCH_MEALS_SUCCESS) {
-        return action.meals;
+        return Object.assign({}, state, {
+            mealsEaten: action.meals
+        });
     }
     return state;
 };

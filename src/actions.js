@@ -27,19 +27,43 @@ export const fetchMeals = () => dispatch => {
             return res.json();
         })
         .then(meals => {
-            dispatch(fetchMealsSuccess(meals));
+            dispatch(fetchMealsSuccess(meals.mealsEaten));
         })
         .catch(err => dispatch(fetchMealsSuccess(err)));
 };
 
-export const ADD_MEAL = 'ADD_MEAL';
-export const addMeal = (meal, category, nutrients, index) => ({
-    type: ADD_MEAL,
+export const ADD_MEAL_SUCCESS = 'ADD_MEAL_SUCCESS';
+export const addMealSuccess = (meal, category, nutrients) => ({
+    type: ADD_MEAL_SUCCESS,
     meal,
     category,
-    nutrients,
-    index
+    nutrients
 });
+
+export const addMeal = (meal, category, nutrients) => dispatch => {
+    fetch(`${API_BASE_URL}/my-meals`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: meal,
+            category: category,
+            nutrients: nutrients,
+            user: 'me'
+        })
+    })
+        .then(res => {
+            if(!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json()
+        })
+        .then(meal => {
+            dispatch(addMealSuccess(meal.name, meal.category, meal.nutrients));
+        })
+        .catch(err => dispatch(addMealSuccess(err)));
+};
 
 export const CHANGE_MEAL = 'CHANGE_MEAL';
 export const changeMeal = (index, updatedNutrients) => ({
