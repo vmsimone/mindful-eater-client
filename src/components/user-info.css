@@ -9,6 +9,11 @@
     border-radius: 5px;
 }
 
+.user-info h2 {
+    font-family: 'cursive', 'Indie Flower';
+    font-size: 42px;
+}
+
 .user-info h3 {
     font-family: 'cursive', 'Indie Flower';
     font-size: 32px;
@@ -18,3 +23,13 @@
     font-family: 'sans', 'Open Sans';
     font-size: 20px;
 }
+
+.user-info {
+    margin-top: 150px;
+}
+
+@media only screen and (min-width: 640px) {
+    .user-info {
+      margin-top: 50px;
+    }
+  }

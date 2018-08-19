@@ -3,7 +3,7 @@ import * as actions from './actions';
 import React from 'react';
 
 const initialState = {
-    username: 'Demo User',
+    username: null,
     diet: 'none',
     lifestyle: 'sedentary', //lifestyle not currently used
     status: 'Click Refresh',
@@ -93,13 +93,15 @@ function sumNutrients(mealsEaten) {
 
 export default (state = initialState, action) => {
     if (action.type === actions.LOG_IN) {
+        console.log(action.username);
         return Object.assign({}, state, {
             username: action.username
         });
     }
     else if (action.type === actions.LOG_OUT) {
+        console.log(action.username);
         return Object.assign({}, state, {
-
+            username: null
         });
     }
     else if (action.type === actions.ADD_MEAL_SUCCESS) {

@@ -5,6 +5,8 @@ import {API_BASE_URL} from '../config';
 import {decodeResponseError} from './utils';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 
+import {logIn} from '../actions';
+
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const setAuthToken = authToken => ({
     type: SET_AUTH_TOKEN,
@@ -42,6 +44,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 
 export const login = (username, password) => dispatch => {
     dispatch(authRequest());
+    dispatch(logIn(username));
     return (
         fetch(`${API_BASE_URL}/auth/login`, {
             method: 'POST',

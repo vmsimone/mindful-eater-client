@@ -10,6 +10,7 @@ import './login-form.css';
 
 export class Login extends React.Component {
     onSubmit(data) {
+        console.log('submitted');
         return this.props.dispatch(login(data.username, data.password));
     }
 
@@ -30,9 +31,10 @@ export class Login extends React.Component {
             <div className="login-page">
                 <h2>Log In</h2>
                 <form
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}>
+                    onSubmit={this.props.handleSubmit(values =>
+                        this.onSubmit(values)
+                    )}
+                >
                     {error}
                     <label htmlFor="username">username:</label>
                     <Field 
@@ -52,7 +54,7 @@ export class Login extends React.Component {
                         type="submit" 
                         disabled={this.props.pristine || this.props.submitting}
                     >
-                        Login
+                        Log in
                     </button>
                     <p>or</p>
                     <Link 

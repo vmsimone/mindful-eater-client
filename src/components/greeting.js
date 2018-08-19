@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 export function Greeting(props) {
     return (
       <div>
-        <h3>Welcome, {props.username}!</h3>
+        <h2>Welcome, {props.username}!</h2>
       </div>
     );
 }

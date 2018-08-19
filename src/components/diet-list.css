@@ -5,5 +5,10 @@
 .diet-list {
     margin: 0 auto;
     margin-bottom: 5%;
-    margin-top: -50px;
 }
+
+@media only screen and (min-width: 640px) {
+    .diet-list {
+      margin-top: -50px;
+    }
+  }
