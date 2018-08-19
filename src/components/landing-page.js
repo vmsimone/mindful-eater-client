@@ -1,10 +1,14 @@
 import React from 'react';
-import './home.css';
-import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {Link, Redirect} from 'react-router-dom';
 
 import './landing-page.css';
 
-export default function LandingPage() {
+export function LandingPage(props) {
+    if (props.loggedIn) {
+        return <Redirect to="/home" />;
+    }
+
     return (
             <div className="landing-page">
                 <nav>
@@ -59,3 +63,9 @@ export default function LandingPage() {
             </div>
     );
 }
+
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(LandingPage);

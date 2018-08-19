@@ -1,20 +1,27 @@
 import React from 'react';
-import {reduxForm, Field} from 'redux-form';
-import {connect} from 'react-redux';
+import {reduxForm, Field, focus} from 'redux-form';
 import {Link} from 'react-router-dom';
+
+import {required, nonEmpty} from '../validators';
+import Input from './input';
+import {login} from '../actions/auth';
 
 import './login-form.css';
 
 export class Login extends React.Component {
     onSubmit(data) {
-        console.log(`username is ${data.username}`);
-        console.log(`Password is ${data.password}`);
-        if(data) {
-
-        }
+        return this.props.dispatch(login(data.username, data.password));
     }
 
     render() {
+        let error;
+        if (this.props.error) {
+            error = (
+                <div className="form-error" aria-live="polite">
+                    {this.props.error}
+                </div>
+            );
+        }
         return (
             <div className="login-page">
                 <h2>Log In</h2>
@@ -22,12 +29,27 @@ export class Login extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
+                    {error}
                     <label htmlFor="username">username:</label>
-                    <Field name="username" component="input" type="text" required />
+                    <Field 
+                        name="username" 
+                        component={Input} 
+                        type="text" 
+                        validate={[required, nonEmpty]}
+                    />
                     <label htmlFor="password">password:</label>
-                    <Field name="password" component="input" type="password" required />
-
-                    <button type="submit">Login</button>
+                    <Field 
+                        name="password" 
+                        component={Input}
+                        type="password" 
+                        validate={[required, nonEmpty]}
+                    />
+                    <button 
+                        type="submit" 
+                        disabled={this.props.pristine || this.props.submitting}
+                    >
+                        Login
+                    </button>
                     <p>or</p>
                     <Link className="sampler" to="/home">try sampling the app as a demo user</Link>
                 </form>
@@ -36,8 +58,7 @@ export class Login extends React.Component {
     }
 }
 
-Login = connect()(Login);
-
 export default reduxForm({
-    form: 'login'
+    form: 'login',
+    onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
 })(Login);
