@@ -13,6 +13,10 @@ export class Login extends React.Component {
         return this.props.dispatch(login(data.username, data.password));
     }
 
+    demoMode() {
+        return this.props.dispatch(login("Demo User", ""));
+    }
+
     render() {
         let error;
         if (this.props.error) {
@@ -51,7 +55,13 @@ export class Login extends React.Component {
                         Login
                     </button>
                     <p>or</p>
-                    <Link className="sampler" to="/home">try sampling the app as a demo user</Link>
+                    <Link 
+                        className="sampler" 
+                        to="/home"
+                        onClick={() => this.demoMode()}
+                    >
+                        try sampling the app as a demo user
+                    </Link>
                 </form>
             </div>
         );

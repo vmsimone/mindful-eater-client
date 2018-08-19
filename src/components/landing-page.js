@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 import './landing-page.css';
 
@@ -11,12 +11,6 @@ export function LandingPage(props) {
 
     return (
             <div className="landing-page">
-                <nav>
-                    <ul>
-                        <li><Link to="/login">Log In</Link></li>
-                        <li><Link to="/signup">Sign up</Link></li>
-                    </ul>
-                </nav>
                 <main>
                     <h1>Mindful Eater</h1>
                     <section className="explain">

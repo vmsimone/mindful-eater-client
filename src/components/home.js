@@ -1,6 +1,8 @@
 import React from 'react';
-import './home.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+import {refreshAuthToken} from '../actions/auth';
 
 import NavigationBar from './navigation-bar.js';
 import UserInfo from './user-info.js';
@@ -10,7 +12,36 @@ import LandingPage from './landing-page.js';
 import Login from './login-form.js';
 import SignUp from './signup-form.js';
 
-class Home extends React.Component {
+import './home.css';
+
+export class Home extends React.Component {
+  componentDidUpdate(prevProps) {
+    if (!prevProps.loggedIn && this.props.loggedIn) {
+        this.startPeriodicRefresh();
+    } else if (prevProps.loggedIn && !this.props.loggedIn) {
+        this.stopPeriodicRefresh();
+    }
+  }
+
+  componentWillUnmount() {
+    this.stopPeriodicRefresh();
+  }
+
+  startPeriodicRefresh() {
+      this.refreshInterval = setInterval(
+          () => this.props.dispatch(refreshAuthToken()),
+          60 * 60 * 1000
+      );
+  }
+
+  stopPeriodicRefresh() {
+      if (!this.refreshInterval) {
+          return;
+      }
+
+      clearInterval(this.refreshInterval);
+  }
+
   render() {
     return (
       <Router>
@@ -32,4 +63,9 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  hasAuthToken: state.auth.authToken !== null,
+  loggedIn: state.auth.currentUser !== null
+});
+
+export default withRouter(connect(mapStateToProps)(Home));
