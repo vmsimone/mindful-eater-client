@@ -14,7 +14,7 @@ export class Login extends React.Component {
     }
 
     demoMode() {
-        return this.props.dispatch(login("Demo User", ""));
+        return this.props.dispatch(login("Demo User", "123456"));
     }
 
     render() {

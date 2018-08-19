@@ -13,6 +13,10 @@ const passwordLength = length({min: 6, max: 20});
 const matchesPassword = matches('password');
 
 export class SignUp extends React.Component {
+    demoMode() {
+        return this.props.dispatch(login("Demo User", "123456"));
+    }
+
     onSubmit(data) {
         const {username, password} = data;
         const user = {username, password};
@@ -57,7 +61,11 @@ export class SignUp extends React.Component {
                         Sign Up!
                     </button>
                     <p>or</p>
-                    <Link className="sampler" to="/home">try sampling the app as a demo user</Link>
+                    <Link 
+                        className="sampler" 
+                        to="/home"
+                        onClick={() => this.demoMode()}
+                    >try sampling the app as a demo user</Link>
                 </form>
             </div>
         );
