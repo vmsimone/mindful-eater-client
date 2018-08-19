@@ -1,0 +1,34 @@
+.login-page h2 {
+    font-family: 'Indie Flower';
+    font-size: 54px;
+}
+
+.login-page form {
+    font-family: sans-serif;
+    font-size: 32px;
+}
+
+.login-page .sampler {
+    text-decoration: none;
+    font-size: 24px;
+    color: green;
+}
+
+.login-page .sampler:hover {
+    color: rgb(34, 252, 89);
+}
+
+.login-page p {
+    font-size: 18px;
+}
+
+.login-page {
+    width: 80%;
+    padding: 5%;
+    margin: 0 auto;
+    background: url(
+        'http://www.photos-public-domain.com/wp-content/uploads/2012/05/ivory-off-white-paper-texture.jpg'
+    );
+    margin-bottom: 10%;
+    border-radius: 5px;
+}

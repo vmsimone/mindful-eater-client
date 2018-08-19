@@ -1,0 +1,20 @@
+.user-info {
+    width: 80%;
+    padding: 5%;
+    margin: 0 auto;
+    background: url(
+        'http://www.photos-public-domain.com/wp-content/uploads/2012/05/ivory-off-white-paper-texture.jpg'
+    );
+    margin-bottom: 10%;
+    border-radius: 5px;
+}
+
+.user-info h3 {
+    font-family: 'cursive', 'Indie Flower';
+    font-size: 32px;
+}
+
+.user-info p {
+    font-family: 'sans', 'Open Sans';
+    font-size: 20px;
+}

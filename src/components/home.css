@@ -1,3 +1,13 @@
+html {
+  background: url(
+    'https://www.goodfreephotos.com/albums/other-photos/backgrounds/green-leaves-background-after-a-rain.jpg'
+  ) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 div {
   text-align: center;
 }
@@ -6,22 +16,11 @@ main {
   position: relative;
   margin-top: 100px;
   margin-bottom: 20px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 section {
   padding: 20px;
-}
-
-.user-desc {
-  background: #999999;
-}
-
-.user-status {
-  background: #cccccc;
-}
-
-.user-recommendations {
-  background: #999999;
 }
 
 @media only screen and (min-width: 640px) {

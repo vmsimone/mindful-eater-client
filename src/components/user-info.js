@@ -5,9 +5,15 @@ import Greeting from './greeting.js';
 import Lifestyle from './lifestyle.js';
 import Status from './status.js';
 
+import {fetchMeals} from '../actions';
+
+import './user-info.css';
+
 export function UserInfo(props) {
+  props.dispatch(fetchMeals());
+
   return (
-    <div className="UserInfo">
+    <div className="user-info">
       <Greeting username={props.username}/>
         <section className="desc">
           <Lifestyle myDiet={props.myDiet} myLifestyle={props.myLifestyle}/>

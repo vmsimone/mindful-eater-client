@@ -3,6 +3,8 @@ import {reduxForm, Field} from 'redux-form';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
+import './login-form.css';
+
 export class Login extends React.Component {
     onSubmit(data) {
         console.log(`username is ${data.username}`);
@@ -14,7 +16,7 @@ export class Login extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="login-page">
                 <h2>Log In</h2>
                 <form
                 onSubmit={this.props.handleSubmit(values =>
@@ -27,7 +29,7 @@ export class Login extends React.Component {
 
                     <button type="submit">Login</button>
                     <p>or</p>
-                    <Link to="/home">try sampling the app as a demo user</Link>
+                    <Link className="sampler" to="/home">try sampling the app as a demo user</Link>
                 </form>
             </div>
         );

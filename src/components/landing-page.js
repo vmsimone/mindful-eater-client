@@ -2,11 +2,19 @@ import React from 'react';
 import './home.css';
 import {Link} from 'react-router-dom';
 
+import './landing-page.css';
+
 export default function LandingPage() {
     return (
-            <div>
-                <h1>Mindful Eater</h1>
+            <div className="landing-page">
+                <nav>
+                    <ul>
+                        <li><Link to="/login">Log In</Link></li>
+                        <li><Link to="/signup">Sign up</Link></li>
+                    </ul>
+                </nav>
                 <main>
+                    <h1>Mindful Eater</h1>
                     <section className="explain">
                         <h3>Keep track of your eating habits</h3> 
                         <img alt="app screenshot"/>
@@ -27,31 +35,26 @@ export default function LandingPage() {
                         <img alt="app screenshot"/>
                     </section>
                     <section className="feature-2">
-                        <h3>Track what's important to you</h3>
+                        <h3>Track the important stuff</h3>
                         <p>
-                        Mindful Eater tracks the nutrients that are most important to YOU. 
-                        If you're looking to hulk up, track focus your stats on iron and protein. 
-                        Trying to lose weight? Track sugars and fats. Mindful Eater makes 
-                        daily eating suggestions based on your goals and intake.
+                        Mindful Eater tracks six of the most important nutrients,
+                        so you don't have to worry about every single ingredient.
+                        If you're looking to hulk up, focus on iron and protein. 
+                        Trying to lose weight? Watch sugars and fats. Mindful Eater makes 
+                        daily eating suggestions based on your intake.
                         </p>
                         <img alt="app screenshot"/>
                     </section>
                     <section className="feature-3">
                         <h3>Get personalized results</h3>
                         <p>
-                        Do you have dietary restrictions or allergies? Tell Mindful Eater 
-                        what foods are off limits and it will adapt its recommendations to fit 
+                        Do you have dietary restrictions? Tell Mindful Eater 
+                        what kind of diet you have and it will adapt its recommendations to fit 
                         your needs. Vegetarians lacking in iron will get recommendations for 
                         spinach instead of steak.
                         </p>
                         <img alt="app screenshot"/>
                     </section>
-                    <nav>
-                        <ul>
-                            <li><Link to="/login">Log In</Link></li>
-                            <li><Link to="/signup">Sign up</Link></li>
-                        </ul>
-                    </nav>
                 </main>
             </div>
     );

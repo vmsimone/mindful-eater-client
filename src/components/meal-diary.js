@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import MealForm from './meal-form.js';
 import Meal from './meal.js';
 
-import {removeMeal} from '../actions';
+import {removeMeal, fetchMeals} from '../actions';
 
 import './meal-diary.css';
 
@@ -17,8 +17,12 @@ export class MealDiary extends React.Component {
     }
   }
 
-  removeMeal(index) {
-    this.props.dispatch(removeMeal(index));
+  componentDidMount() {
+    this.props.dispatch(fetchMeals());
+  }
+
+  removeMeal(id, index) {
+    this.props.dispatch(removeMeal(id, index));
   }
 
   editNutrients(index) {
@@ -32,7 +36,6 @@ export class MealDiary extends React.Component {
       return (
         <li
           key={index}
-          onClick={() => this.editNutrients(index)}
           className={this.state.editing === index ? 'editing' : ''}
         >
           <Meal
@@ -41,19 +44,23 @@ export class MealDiary extends React.Component {
             category={meal.category}
             editing={this.state.editing === index}
             index={index}
+            id={meal.id}
             onUpdate={(index) => this.editNutrients(index)}
           />
-          <button onClick={() => this.removeMeal(index)}>Remove</button>
+          <button onClick={() => this.removeMeal(meal.id, index)}>Remove</button>
         </li>
       )
     });
 
     return (
-      <div className="MealDiary">
+      <div className="meal-diary">
           <main>
-            <h2>Today I've eaten...</h2>
+            <h2>Today you've eaten...</h2>
             {this.state.addingMeal ? 
-              <MealForm /> 
+              <div>
+                <MealForm />
+                <button onClick={() => this.setState({addingMeal: false})}>Cancel</button>
+              </div> 
               : 
               <button onClick={() => this.setState({addingMeal: true})}>Eat something</button>
             }
