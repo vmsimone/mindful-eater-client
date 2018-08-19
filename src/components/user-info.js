@@ -1,9 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 import Greeting from './greeting.js';
 import Lifestyle from './lifestyle.js';
 import Status from './status.js';
+import requiresLogin from './requires-login.js';
 
 import {fetchMeals} from '../actions';
 
@@ -33,4 +34,4 @@ const mapStateToProps = state => ({
   weRecommend: state.mindful.recommendations
 });
 
-export default connect(mapStateToProps)(UserInfo);
+export default requiresLogin()(connect(mapStateToProps)(UserInfo));

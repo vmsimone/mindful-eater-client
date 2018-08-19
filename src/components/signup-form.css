@@ -32,3 +32,23 @@
 .signup p {
     font-size: 18px;
 }
+
+.signup button {
+    font-family: 'sans', 'Open Sans';
+    background: greenyellow;
+    color: darkgreen;
+    font-size: 18px;
+    margin-top: 10px;
+    border-bottom: green 2px solid;
+    border-right: green 2px solid;
+    border-top: lightgreen 2px solid;
+    border-left: lightgreen 2px solid;
+}
+
+.signup button:hover {
+    background: yellow;
+}
+
+.signup nav {
+    visibility: hidden;
+}

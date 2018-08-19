@@ -1,18 +1,16 @@
 import React from 'react';
-import './home.css';
-import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 import './landing-page.css';
 
-export default function LandingPage() {
+export function LandingPage(props) {
+    if (props.loggedIn) {
+        return <Redirect to="/home" />;
+    }
+
     return (
             <div className="landing-page">
-                <nav>
-                    <ul>
-                        <li><Link to="/login">Log In</Link></li>
-                        <li><Link to="/signup">Sign up</Link></li>
-                    </ul>
-                </nav>
                 <main>
                     <h1>Mindful Eater</h1>
                     <section className="explain">
@@ -59,3 +57,9 @@ export default function LandingPage() {
             </div>
     );
 }
+
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(LandingPage);

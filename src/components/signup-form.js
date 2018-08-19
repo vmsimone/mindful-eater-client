@@ -1,17 +1,28 @@
 import React from 'react';
-import {reduxForm, Field} from 'redux-form';
-import {connect} from 'react-redux';
+import {reduxForm, Field, focus} from 'redux-form';
 import {Link} from 'react-router-dom';
+
+import {login} from '../actions/auth';
+import {registerUser} from '../actions/users';
+import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+import Input from './input';
 
 import './signup-form.css';
 
-export class Login extends React.Component {
-    onSubmit(data) {
-        console.log(`username is ${data.username}`);
-        console.log(`Password is ${data.password}`);
-        if(data) {
+const passwordLength = length({min: 6, max: 20});
+const matchesPassword = matches('password');
 
-        }
+export class SignUp extends React.Component {
+    demoMode() {
+        return this.props.dispatch(login("Demo User", "123456"));
+    }
+
+    onSubmit(data) {
+        const {username, password} = data;
+        const user = {username, password};
+        return this.props
+            .dispatch(registerUser(user))
+            .then(() => this.props.dispatch(login(username, password)));
     }
 
     render() {
@@ -23,23 +34,45 @@ export class Login extends React.Component {
                     this.onSubmit(values)
                 )}>
                     <label htmlFor="username">username:</label>
-                    <Field name="username" component="input" type="text" required />
+                    <Field 
+                        name="username" 
+                        component={Input} 
+                        type="text" 
+                        validators={[required, nonEmpty, isTrimmed]} 
+                    />
                     <label htmlFor="password">password:</label>
-                    <Field name="password" component="input" type="password" required />
+                    <Field 
+                        name="password" 
+                        component={Input}
+                        type="password" 
+                        validators={[required, passwordLength, isTrimmed]} 
+                    />
                     <label htmlFor="confirm-password">confirm:</label>
-                    <Field name="confirm-password" component="input" type="password" required />
-
-                    <button type="submit">Sign up!</button>
+                    <Field 
+                        name="confirm-password" 
+                        component={Input}
+                        type="password" 
+                        validators={[required, nonEmpty, matchesPassword]}
+                    />
+                    <button 
+                        type="submit" 
+                        disabled={this.props.pristine || this.props.submitting}
+                    >
+                        Sign Up!
+                    </button>
                     <p>or</p>
-                    <Link className="sampler" to="/home">try sampling the app as a demo user</Link>
+                    <Link 
+                        className="sampler" 
+                        to="/home"
+                        onClick={() => this.demoMode()}
+                    >try sampling the app as a demo user</Link>
                 </form>
             </div>
         );
     }
 }
 
-Login = connect()(Login);
-
 export default reduxForm({
-    form: 'login'
-})(Login);
+    form: 'signup',
+    onSubmitFail: (errors, dispatch) => dispatch(focus('signup', Object.keys(errors)[0]))
+})(SignUp);
