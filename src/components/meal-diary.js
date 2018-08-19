@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import MealForm from './meal-form.js';
 import Meal from './meal.js';
+import requiresLogin from './requires-login.js';
 
 import {removeMeal, fetchMeals} from '../actions';
 
@@ -77,4 +78,4 @@ const mapStateToProps = state => ({
   mealsEaten: state.mindful.mealsEaten
 });
 
-export default connect(mapStateToProps)(MealDiary);
+export default requiresLogin()(connect(mapStateToProps)(MealDiary));
