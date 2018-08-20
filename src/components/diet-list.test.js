@@ -1,7 +1,7 @@
-import React from 'react';
-import {shallow} from 'enzyme';
+// import React from 'react';
+// import {shallow} from 'enzyme';
 
-import DietList from './diet-list.js';
+// import DietList from './diet-list.js';
 
 describe('<DietList />', () => {
     const dispatch = jest.fn();

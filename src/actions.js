@@ -66,22 +66,22 @@ export const addMeal = (meal, category, nutrients) => dispatch => {
 };
 
 export const changeMeal = (index, id, updatedNutrients) => dispatch => {
-    console.log(updatedNutrients);
     fetch(`${API_BASE_URL}/my-meals/${id}`, {
         method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
             id: id,
             nutrients: updatedNutrients
         })
     })
     .then(res => {
-        console.log(res.ok);
         if(!res.ok) {
             return Promise.reject(res.statusText);
         }
-        return res.json()
     });
-    dispatch(addMealSuccess(index, updatedNutrients));
+    dispatch(changeMealSuccess(index, updatedNutrients));
 }
 
 export const CHANGE_MEAL_SUCCESS = 'CHANGE_MEAL_SUCCESS';

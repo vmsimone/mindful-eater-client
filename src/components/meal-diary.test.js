@@ -1,7 +1,7 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+// import React from 'react';
+// import { shallow } from 'enzyme';
 
-import MealDiary from './meal-diary.js';
+// import MealDiary from './meal-diary.js';
 
 describe('<MealDiary />', () => {
     it('should do nothing', () => {

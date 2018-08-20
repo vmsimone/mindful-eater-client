@@ -1,5 +1,4 @@
 export const decodeResponseError = res => {
-    console.log(res);
     if (!res.ok) {
         if (
             res.headers.has('content-type') &&

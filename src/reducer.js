@@ -116,8 +116,8 @@ export default (state = initialState, action) => {
     }
     else if (action.type === actions.CHANGE_MEAL_SUCCESS) {
         const {mealsEaten} = state;
+        console.log(action);
         mealsEaten[action.index].nutrients = action.updatedNutrients;
-        console.log(mealsEaten);
         return Object.assign({}, state, {
             mealsEaten: mealsEaten
         });
@@ -202,7 +202,6 @@ export default (state = initialState, action) => {
     }
     else if (action.type === actions.FETCH_MEALS_SUCCESS) {
         console.log("fetched");
-        console.log(action.meals);
         return Object.assign({}, state, {
             mealsEaten: action.meals
         });
