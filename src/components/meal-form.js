@@ -7,9 +7,10 @@ import {addMeal, fetchMeals, changeStatus, showRecommendations} from '../actions
 import './meal-form.css'
 
 export class MealForm extends React.Component {
-    addMeal(name, category, nutrients) {
-        this.props.dispatch(addMeal(name, category, nutrients));
-        this.props.dispatch(fetchMeals());
+    addMeal(name, category, nutrients, user) {
+        console.log(user);
+        this.props.dispatch(addMeal(name, category, nutrients, user));
+        this.props.dispatch(fetchMeals(user));
         this.updateEvaluation();
     }
 
@@ -31,7 +32,13 @@ export class MealForm extends React.Component {
                 "sugars": values.sugars
             }
         };
-        this.addMeal(newMeal.name, newMeal.category, newMeal.nutrients);
+        this.addMeal(
+            newMeal.name, 
+            newMeal.category, 
+            newMeal.nutrients, 
+            this.props.user
+        );
+        this.props.onAdd();
     }
     render() {
         return (
@@ -151,7 +158,11 @@ export class MealForm extends React.Component {
     }
 }
 
-MealForm = connect()(MealForm);
+const mapStateToProps = state => ({
+    user: state.auth.currentUser.username
+});
+
+MealForm = connect(mapStateToProps)(MealForm);
 
 export default reduxForm({
     form: 'add-meal'

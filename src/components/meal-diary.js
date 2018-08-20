@@ -19,11 +19,12 @@ export class MealDiary extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchMeals());
+    this.props.dispatch(fetchMeals(this.props.user));
   }
 
   removeMeal(id, index) {
     this.props.dispatch(removeMeal(id, index));
+    this.props.dispatch(fetchMeals(this.props.user));
   }
 
   editNutrients(index) {
@@ -59,7 +60,7 @@ export class MealDiary extends React.Component {
             <h2>Today you've eaten...</h2>
             {this.state.addingMeal ? 
               <div>
-                <MealForm />
+                <MealForm onAdd={() => this.setState({addingMeal: false})}/>
                 <button onClick={() => this.setState({addingMeal: false})}>Cancel</button>
               </div> 
               : 
@@ -75,7 +76,8 @@ export class MealDiary extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  mealsEaten: state.mindful.mealsEaten
+  mealsEaten: state.mindful.mealsEaten,
+  user: state.auth.currentUser.username
 });
 
 export default requiresLogin()(connect(mapStateToProps)(MealDiary));

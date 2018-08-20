@@ -105,12 +105,13 @@ export default (state = initialState, action) => {
         });
     }
     else if (action.type === actions.ADD_MEAL_SUCCESS) {
+        console.log(action);
         return Object.assign({}, state, {
             mealsEaten: [...state.mealsEaten, {
                 "name": action.meal,
                 "category": action.category,
                 "nutrients": action.nutrients,
-                "user": "me"
+                "user": action.user
             }]
         });
     }

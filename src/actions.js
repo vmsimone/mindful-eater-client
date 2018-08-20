@@ -18,8 +18,8 @@ export const fetchMealsSuccess = meals => ({
     meals
 });
 
-export const fetchMeals = () => dispatch => {
-    fetch(`${API_BASE_URL}/my-meals`)
+export const fetchMeals = (user) => dispatch => {
+    fetch(`${API_BASE_URL}/my-meals/${user}`)
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -33,14 +33,15 @@ export const fetchMeals = () => dispatch => {
 };
 
 export const ADD_MEAL_SUCCESS = 'ADD_MEAL_SUCCESS';
-export const addMealSuccess = (meal, category, nutrients) => ({
+export const addMealSuccess = (meal, category, nutrients, user) => ({
     type: ADD_MEAL_SUCCESS,
     meal,
     category,
-    nutrients
+    nutrients,
+    user
 });
 
-export const addMeal = (meal, category, nutrients) => dispatch => {
+export const addMeal = (meal, category, nutrients, user) => dispatch => {
     fetch(`${API_BASE_URL}/my-meals`, {
         method: 'POST',
         headers: {
@@ -50,7 +51,7 @@ export const addMeal = (meal, category, nutrients) => dispatch => {
             name: meal,
             category: category,
             nutrients: nutrients,
-            user: 'me'
+            user: user
         })
     })
         .then(res => {
@@ -60,7 +61,7 @@ export const addMeal = (meal, category, nutrients) => dispatch => {
             return res.json()
         })
         .then(meal => {
-            dispatch(addMealSuccess(meal.name, meal.category, meal.nutrients));
+            dispatch(addMealSuccess(meal.name, meal.category, meal.nutrients, user));
         })
         .catch(err => dispatch(addMealSuccess(err)));
 };

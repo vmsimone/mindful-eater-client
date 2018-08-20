@@ -9,7 +9,7 @@ import './meal.css';
 export class MealEditor extends React.Component {
     changeMeal(index, id, nutrientObj) {
         this.props.dispatch(changeMeal(index, id, nutrientObj));
-        this.props.dispatch(fetchMeals());
+        this.props.dispatch(fetchMeals(this.props.user));
     }
     
     onSubmit(values) {
@@ -53,7 +53,11 @@ export class MealEditor extends React.Component {
     }
 }
 
-MealEditor = connect()(MealEditor);
+const mapStateToProps = state => ({
+    user: state.auth.currentUser.username
+});
+
+MealEditor = connect(mapStateToProps)(MealEditor);
 
 export default reduxForm({
     form: 'edit-meal'
