@@ -5,6 +5,7 @@ import {UserInfo} from './user-info.js';
 
 describe('<UserInfo />', () => {
     it('should render', () => {
-        shallow(<UserInfo />);
+        const dispatch = jest.fn();
+        shallow(<UserInfo dispatch={dispatch}/>);
     });
 });
