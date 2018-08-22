@@ -1,10 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import {shallow} from 'enzyme';
 
 import {NavigationBar} from './navigation-bar.js';
 
 describe('<NavigationBar />', () => {
     it('should render', () => {
         shallow(<NavigationBar />);
+    });
+
+    it('should dispatch logOut on click', () => {
+
     });
 });

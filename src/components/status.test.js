@@ -14,4 +14,8 @@ describe('<Status />', () => {
             />
         );
     });
+
+    it('should dispatch updateEvaluation on Mount', () => {
+
+    });
 });
