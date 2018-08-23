@@ -68,7 +68,6 @@ export const addMeal = (meal, category, nutrients, user) => dispatch => {
 };
 
 export const changeMeal = (index, id, updatedNutrients, user) => dispatch => {
-    console.log(id);
     fetch(`${API_BASE_URL}/my-meals/${id}`, {
         method: 'PUT',
         headers: {

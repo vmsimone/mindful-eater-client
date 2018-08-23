@@ -14,8 +14,7 @@ export function LandingPage(props) {
                 <main>
                     <h1>Mindful Eater</h1>
                     <section className="explain">
-                        <h3>Keep track of your eating habits</h3> 
-                        <img src="../../screenshots/meals.png" alt="app screenshot"/>
+                        <h3>Keep track of your eating habits</h3>
                         <p>
                         Are you trying to eat healthy, but don't know where to begin? Does it 
                         feel like you need a nutritionist whispering in your ear? How many breads 
@@ -30,7 +29,6 @@ export function LandingPage(props) {
                         Keep track of what you eat every day and monitor your weekly or monthly 
                         habits.
                         </p>
-                        <img alt="app screenshot"/>
                     </section>
                     <section className="feature-2">
                         <h3>Track the important stuff</h3>
@@ -41,7 +39,6 @@ export function LandingPage(props) {
                         Trying to lose weight? Watch sugars and fats. Mindful Eater makes 
                         daily eating suggestions based on your intake.
                         </p>
-                        <img alt="app screenshot"/>
                     </section>
                     <section className="feature-3">
                         <h3>Get personalized results</h3>
@@ -51,7 +48,6 @@ export function LandingPage(props) {
                         your needs. Vegetarians lacking in iron will get recommendations for 
                         spinach instead of steak.
                         </p>
-                        <img alt="app screenshot"/>
                     </section>
                 </main>
             </div>

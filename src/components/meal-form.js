@@ -8,7 +8,6 @@ import './meal-form.css'
 
 export class MealForm extends React.Component {
     addMeal(name, category, nutrients, user) {
-        console.log(user);
         this.props.dispatch(addMeal(name, category, nutrients, user));
         this.updateEvaluation();
     }

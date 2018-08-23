@@ -93,19 +93,16 @@ function sumNutrients(mealsEaten) {
 
 export default (state = initialState, action) => {
     if (action.type === actions.LOG_IN) {
-        console.log(action.username);
         return Object.assign({}, state, {
             username: action.username
         });
     }
     else if (action.type === actions.LOG_OUT) {
-        console.log(action.username);
         return Object.assign({}, state, {
             username: null
         });
     }
     else if (action.type === actions.ADD_MEAL_SUCCESS) {
-        console.log(action);
         return Object.assign({}, state, {
             mealsEaten: [...state.mealsEaten, {
                 "name": action.meal,
@@ -117,14 +114,12 @@ export default (state = initialState, action) => {
     }
     else if (action.type === actions.CHANGE_MEAL_SUCCESS) {
         const {mealsEaten} = state;
-        console.log(action);
         mealsEaten[action.index].nutrients = action.updatedNutrients;
         return Object.assign({}, state, {
             mealsEaten: mealsEaten
         });
     }
     else if (action.type === actions.REMOVE_MEAL_SUCCESS) {
-        console.log("meal removed");
         const {mealsEaten} = state;
         mealsEaten.splice(action.mealIndex, 1);
         return Object.assign({}, state, {
@@ -202,7 +197,6 @@ export default (state = initialState, action) => {
         });
     }
     else if (action.type === actions.FETCH_MEALS_SUCCESS) {
-        console.log("fetched");
         return Object.assign({}, state, {
             mealsEaten: action.meals
         });

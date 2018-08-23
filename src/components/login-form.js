@@ -28,7 +28,6 @@ export class Login extends React.Component {
             );
         }
         if (this.props.username) {
-            console.log(this.props.username);
             return (
                 <Redirect to="/home" />
             );
