@@ -2,6 +2,9 @@
 Live Version:
 https://mindful-eater-client.herokuapp.com/
 
+Server/API:
+https://github.com/vmsimone/mindful-eater-api
+
 A fullstack web application designed to help users track their eating habits, get information on the nutrients they're lacking or eating too much of, and see suggestions on what foods will provide these nutrients.
 
 # Screenshots and Description
