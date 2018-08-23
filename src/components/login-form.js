@@ -1,6 +1,7 @@
 import React from 'react';
 import {reduxForm, Field, focus} from 'redux-form';
-import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {Link, Redirect} from 'react-router-dom';
 
 import {required, nonEmpty} from '../validators';
 import Input from './input';
@@ -10,7 +11,6 @@ import './login-form.css';
 
 export class Login extends React.Component {
     onSubmit(data) {
-        console.log('submitted');
         return this.props.dispatch(login(data.username, data.password));
     }
 
@@ -25,6 +25,12 @@ export class Login extends React.Component {
                 <div className="form-error" aria-live="polite">
                     {this.props.error}
                 </div>
+            );
+        }
+        if (this.props.username) {
+            console.log(this.props.username);
+            return (
+                <Redirect to="/home" />
             );
         }
         return (
@@ -69,6 +75,12 @@ export class Login extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    username: state.mindful.username
+});
+
+Login = connect(mapStateToProps)(Login);
 
 export default reduxForm({
     form: 'login',

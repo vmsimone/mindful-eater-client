@@ -44,7 +44,6 @@ const storeAuthInfo = (authToken, dispatch) => {
 
 export const login = (username, password) => dispatch => {
     dispatch(authRequest());
-    dispatch(logIn(username));
     return (
         fetch(`${API_BASE_URL}/auth/login`, {
             method: 'POST',
@@ -58,7 +57,10 @@ export const login = (username, password) => dispatch => {
         })
             .then(res => decodeResponseError(res))
             .then(res => res.json())
-            .then(({authToken}) => storeAuthInfo(authToken, dispatch))
+            .then(({authToken}) => {
+                dispatch(logIn(username));
+                return storeAuthInfo(authToken, dispatch);
+            })
             .catch(err => {
                 const {code} = err;
                 const message =

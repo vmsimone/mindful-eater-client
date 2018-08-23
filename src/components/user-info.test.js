@@ -8,4 +8,8 @@ describe('<UserInfo />', () => {
         const dispatch = jest.fn();
         shallow(<UserInfo dispatch={dispatch}/>);
     });
+
+    it('should update the user information when rendered', () => {
+
+    });
 });
