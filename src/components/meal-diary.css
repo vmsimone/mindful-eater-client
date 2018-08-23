@@ -30,7 +30,8 @@
     border-left: lightgreen 2px solid;
 }
 
-.meal-diary button:hover {
+.meal-diary button:hover,
+.meal-diary button:focus {
     background: yellow;
 }
 

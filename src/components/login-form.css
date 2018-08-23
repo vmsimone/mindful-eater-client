@@ -32,3 +32,24 @@
     margin-bottom: 10%;
     border-radius: 5px;
 }
+
+.login-page nav {
+    visibility: hidden;
+}
+
+.login-page button {
+    font-family: 'sans', 'Open Sans';
+    background: greenyellow;
+    color: darkgreen;
+    font-size: 18px;
+    margin-top: 10px;
+    border-bottom: green 2px solid;
+    border-right: green 2px solid;
+    border-top: lightgreen 2px solid;
+    border-left: lightgreen 2px solid;
+}
+
+.login-page button:hover,
+.login-page button:focus {
+    background: yellow;
+}

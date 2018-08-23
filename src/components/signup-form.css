@@ -45,7 +45,8 @@
     border-left: lightgreen 2px solid;
 }
 
-.signup button:hover {
+.signup button:hover,
+.signup button:focus {
     background: yellow;
 }
 
