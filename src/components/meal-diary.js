@@ -23,8 +23,7 @@ export class MealDiary extends React.Component {
   }
 
   removeMeal(id, index) {
-    this.props.dispatch(removeMeal(id, index));
-    this.props.dispatch(fetchMeals(this.props.user));
+    this.props.dispatch(removeMeal(id, index, this.props.user));
   }
 
   editNutrients(index) {

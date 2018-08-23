@@ -62,11 +62,13 @@ export const addMeal = (meal, category, nutrients, user) => dispatch => {
         })
         .then(meal => {
             dispatch(addMealSuccess(meal.name, meal.category, meal.nutrients, user));
+            dispatch(fetchMeals(user));
         })
         .catch(err => dispatch(addMealSuccess(err)));
 };
 
-export const changeMeal = (index, id, updatedNutrients) => dispatch => {
+export const changeMeal = (index, id, updatedNutrients, user) => dispatch => {
+    console.log(id);
     fetch(`${API_BASE_URL}/my-meals/${id}`, {
         method: 'PUT',
         headers: {
@@ -81,8 +83,9 @@ export const changeMeal = (index, id, updatedNutrients) => dispatch => {
         if(!res.ok) {
             return Promise.reject(res.statusText);
         }
+        dispatch(changeMealSuccess(index, updatedNutrients));
+        dispatch(fetchMeals(user));
     });
-    dispatch(changeMealSuccess(index, updatedNutrients));
 }
 
 export const CHANGE_MEAL_SUCCESS = 'CHANGE_MEAL_SUCCESS';
@@ -92,7 +95,7 @@ export const changeMealSuccess = (index, updatedNutrients) => ({
     updatedNutrients
 });
 
-export const removeMeal = (id, index) => dispatch => {
+export const removeMeal = (id, index, user) => dispatch => {
     fetch(`${API_BASE_URL}/my-meals/${id}`, {
         method: 'DELETE'
     })
@@ -100,8 +103,9 @@ export const removeMeal = (id, index) => dispatch => {
         if(!res.ok) {
             return Promise.reject(res.statusText);
         }
+        dispatch(removeMealSuccess(index));
+        dispatch(fetchMeals(user));
     });
-    dispatch(removeMealSuccess(index));
 }
 
 export const REMOVE_MEAL_SUCCESS = 'REMOVE_MEAL_SUCCESS';

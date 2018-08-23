@@ -5,11 +5,14 @@ import {Link} from 'react-router-dom';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 
+import {logOut} from '../actions';
+
 import './navigation-bar.css'
 
 export class NavigationBar extends React.Component {
     logOut() {
       this.props.dispatch(clearAuth());
+      this.props.dispatch(logOut());
       clearAuthToken();
     }
 

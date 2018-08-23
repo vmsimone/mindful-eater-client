@@ -1,18 +1,20 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 
-import {SignUp} from './navigation-bar.js';
+import store from '../store';
+
+import {SignUp} from './signup-form.js';
 
 describe('<SignUp />', () => {
     it('should render', () => {
-        shallow(<SignUp />);
+        shallow(<SignUp store={store} />);
     });
 
-    it('should dispatch registerUser on submit', () => {
+//     it('should dispatch registerUser on submit', () => {
 
-    });
+//     });
 
-    it('should dispatch login after user is registered', () => {
+//     it('should dispatch login after user is registered', () => {
 
-    });
+//     });
 });

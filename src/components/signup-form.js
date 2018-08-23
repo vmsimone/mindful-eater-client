@@ -1,6 +1,7 @@
 import React from 'react';
 import {reduxForm, Field, focus} from 'redux-form';
-import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {Link, Redirect} from 'react-router-dom';
 
 import {login} from '../actions/auth';
 import {registerUser} from '../actions/users';
@@ -26,6 +27,11 @@ export class SignUp extends React.Component {
     }
 
     render() {
+        if (this.props.username) {
+            return (
+                <Redirect to="/home" />
+            );
+        }
         return (
             <div className="signup">
                 <h2>Sign Up</h2>
@@ -71,6 +77,12 @@ export class SignUp extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    username: state.mindful.username
+});
+
+SignUp = connect(mapStateToProps)(SignUp);
 
 export default reduxForm({
     form: 'signup',

@@ -2,7 +2,7 @@ import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import {connect} from 'react-redux';
 
-import {addMeal, fetchMeals, changeStatus, showRecommendations} from '../actions';
+import {addMeal, changeStatus, showRecommendations} from '../actions';
 
 import './meal-form.css'
 
@@ -10,7 +10,6 @@ export class MealForm extends React.Component {
     addMeal(name, category, nutrients, user) {
         console.log(user);
         this.props.dispatch(addMeal(name, category, nutrients, user));
-        this.props.dispatch(fetchMeals(user));
         this.updateEvaluation();
     }
 
