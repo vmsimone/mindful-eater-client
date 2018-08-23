@@ -51,6 +51,7 @@ export default function Meal (props) {
         let nutrientName = nutrient[0];
         let value = nutrient[1];
         let unit = (nutrientName === "iron" ? "mg" : "g");
+        unit = (nutrientName === "calories" ? "kcal" : "g");
 
         return (
             <li key={index}>{nutrientName}: {value}{unit}<br /></li>
