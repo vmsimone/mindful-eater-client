@@ -15,7 +15,7 @@ export function LandingPage(props) {
                     <h1>Mindful Eater</h1>
                     <section className="explain">
                         <h3>Keep track of your eating habits</h3> 
-                        <img alt="app screenshot"/>
+                        <img src="../../screenshots/meals.png" alt="app screenshot"/>
                         <p>
                         Are you trying to eat healthy, but don't know where to begin? Does it 
                         feel like you need a nutritionist whispering in your ear? How many breads 
